@@ -14,8 +14,8 @@ def MainTopo():
     Se2 = net.addHost('Server2', ip='192.168.2.2/29')
     Ro1 = net.addHost('Router1')
 
-    net.addLink(Cl1, Ro1, bw=2, max_queue_size=100)
-    net.addLink(Se2, Ro1, bw=100, max_queue_size=100)
+    net.addLink(Cl1, Ro1, bw=1000)
+    net.addLink(Se2, Ro1, bw=1000)
 
     net.build()
 
@@ -35,10 +35,15 @@ def MainTopo():
 
     Cl1.cmd('ip route add default via 192.168.1.1')
     Se2.cmd('ip route add default via 192.168.2.1')
+    print('=================================================================================')
+    Cl1.cmdPrint('sysctl net.ipv4.tcp_congestion_control')
+    Se2.cmdPrint('sysctl net.ipv4.tcp_congestion_control')
+    print('=================================================================================')
+    
+    net.pingAll()
+    print('=================================================================================')
 
-    Cl1.cmd('cat /proc/sys/net/ipv4/tcp_congestion_control')
-    Se2.cmd('cat /proc/sys/net/ipv4/tcp_congestion_control')
-
+    Cl1.cmdPrint('ping 192.168.1.1 -c 20 > testx.txt')
     CLI(net)
     net.stop()
 
