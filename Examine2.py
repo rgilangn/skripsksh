@@ -6,7 +6,7 @@ from mininet.link import TCLink
 from mininet.node import CPULimitedHost
 import os
 
-def MainTopo():
+def mainTopo():
     os.system('mn -c')
     net = Mininet(link=TCLink, host=CPULimitedHost)
 
@@ -14,8 +14,8 @@ def MainTopo():
     Se2 = net.addHost('Server2', ip='192.168.2.2/29')
     Ro1 = net.addHost('Router1')
 
-    net.addLink(Cl1, Ro1, bw=1000)
-    net.addLink(Se2, Ro1, bw=1000)
+    net.addLink(Cl1, Ro1, bw=100)
+    net.addLink(Se2, Ro1, bw=50)
 
     net.build()
 
@@ -36,7 +36,7 @@ def MainTopo():
     Se2.cmd('ip route add default via 192.168.2.1')
 
 def mainConfig():
-    print('======================STARTING SCENARIO 1 (NORMAL)============================')
+    print('======================STARTING SCENARIO 1 (Bottleneck)============================')
     print('=================================================================================')
     Cl1.cmdPrint('sysctl  net.ipv4.tcp_congestion_control')
     Se2.cmdPrint('sysctl  net.ipv4.tcp_congestion_control')

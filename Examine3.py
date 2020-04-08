@@ -15,7 +15,7 @@ def MainTopo():
     Ro1 = net.addHost('Router1')
 
     net.addLink(Cl1, Ro1, bw=1000)
-    net.addLink(Se2, Ro1, bw=1000)
+    net.addLink(Se2, Ro1, bw=1000, max_queue_size = 100)
 
     net.build()
 
@@ -36,7 +36,7 @@ def MainTopo():
     Se2.cmd('ip route add default via 192.168.2.1')
 
 def mainConfig():
-    print('======================STARTING SCENARIO 1 (NORMAL)============================')
+    print('====================STARTING SCENARIO 1 (Various Queue)==========================')
     print('=================================================================================')
     Cl1.cmdPrint('sysctl  net.ipv4.tcp_congestion_control')
     Se2.cmdPrint('sysctl  net.ipv4.tcp_congestion_control')
@@ -48,6 +48,7 @@ def mainConfig():
     #Cl1.cmdPrint('ping 192.168.1.1 -c 20 > testx.txt')
 
 def startExamine():
+    info('Define Another Queue')
     CLI(net)
     net.stop()
 
