@@ -44,23 +44,15 @@ def mainTopo():
     
     net.pingAll() #examine connection
     print('=================================================================================')
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> editing Examines files
 
-    #Cl1.cmdPrint('ping 192.168.1.1 -c 20 > testx.txt')
     print('                             Server Iperf Started')
-    Se2.cmd('iperf -s &')
-<<<<<<< HEAD
-=======
+    
     Se2.cmd('iperf -s -i 1 > ~/dataResult/iperf-serverSide.txt &')
-    Se2.cmdPrint('echo iperf started')
+    Se2.print('iperf started')
+
+    Se2.cmdPrint('python -m SimpleHTTPServer &')
     #Cl1.cmdPrint('ping 192.168.1.1 -c 20 > testx.txt')
     
->>>>>>> modify main examine file and add new results folder
-=======
->>>>>>> editing Examines files
     CLI(net)
     net.stop()
 
