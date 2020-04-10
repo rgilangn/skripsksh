@@ -6,16 +6,17 @@ from mininet.link import TCLink
 from mininet.node import CPULimitedHost
 import os
 
-def MainTopo():
+
+def mainTopo():
     os.system('mn -c')
     net = Mininet(link=TCLink, host=CPULimitedHost)
 
-    Cl1 = net.addHost('Client1', ip='192.168.1.2/29')
-    Se2 = net.addHost('Server2', ip='192.168.2.2/29')
+    Cl1 = net.addHost('Cl1', ip='192.168.1.2/29')
+    Se2 = net.addHost('Se2', ip='192.168.2.2/29')
     Ro1 = net.addHost('Router1')
 
-    net.addLink(Cl1, Ro1, bw=1000)
-    net.addLink(Se2, Ro1, bw=1000)
+    net.addLink(Cl1, Ro1, bw=100)
+    net.addLink(Se2, Ro1, bw=100)
 
     net.build()
 
@@ -35,26 +36,24 @@ def MainTopo():
     Cl1.cmd('ip route add default via 192.168.1.1')
     Se2.cmd('ip route add default via 192.168.2.1')
 
-def mainConfig():
     print('======================STARTING SCENARIO 1 (NORMAL)============================')
     print('=================================================================================')
     Cl1.cmdPrint('sysctl  net.ipv4.tcp_congestion_control')
     Se2.cmdPrint('sysctl  net.ipv4.tcp_congestion_control')
     print('=================================================================================')
     
-    net.pingAll()
+    net.pingAll() #examine connection
     print('=================================================================================')
 
     #Cl1.cmdPrint('ping 192.168.1.1 -c 20 > testx.txt')
-
-def startExamine():
+    print('                             Server Iperf Started')
+    Se2.cmd('iperf -s &')
     CLI(net)
     net.stop()
 
 if __name__ =='__main__':
     setLogLevel('info')
     mainTopo()
-    mainConfig()
     
     
     

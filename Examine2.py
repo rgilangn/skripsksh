@@ -35,7 +35,6 @@ def mainTopo():
     Cl1.cmd('ip route add default via 192.168.1.1')
     Se2.cmd('ip route add default via 192.168.2.1')
 
-def mainConfig():
     print('======================STARTING SCENARIO 1 (Bottleneck)============================')
     print('=================================================================================')
     Cl1.cmdPrint('sysctl  net.ipv4.tcp_congestion_control')
@@ -46,15 +45,17 @@ def mainConfig():
     print('=================================================================================')
 
     #Cl1.cmdPrint('ping 192.168.1.1 -c 20 > testx.txt')
-
-def startExamine():
+    print('                             Server Iperf Started')
+    Se2.cmd('iperf -s &')
+    
     CLI(net)
     net.stop()
+    
 
 if __name__ =='__main__':
     setLogLevel('info')
     mainTopo()
-    mainConfig()
+    
     
     
     
