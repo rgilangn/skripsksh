@@ -45,13 +45,17 @@ def mainTopo():
     net.pingAll() #examine connection
     print('=================================================================================')
 
-    print('                             Server Iperf Started')
     
-    Se2.cmd('iperf -s -i 1 > ~/dataResult/iperf-serverSide.txt &')
-    Se2.print('iperf started')
-
+    
+    Se2.cmd('iperf -s > dataResult/iperf-server.txt &')
+    Se2.cmdPrint('echo                          Server Iperf Started')
+    print('=================================================================================')
     Se2.cmdPrint('python -m SimpleHTTPServer &')
-    #Cl1.cmdPrint('ping 192.168.1.1 -c 20 > testx.txt')
+    Se2.cmdPrint('echo                          Python HTTP Server Start')
+    print('=================================================================================')
+    Cl1.cmdPrint('wireshark &')
+    Cl1.cmdPrint('echo                          Wireshark Started, Manual Override')
+
     
     CLI(net)
     net.stop()
@@ -60,5 +64,5 @@ if __name__ =='__main__':
     setLogLevel('info')
     mainTopo()
     
-    
+
     
