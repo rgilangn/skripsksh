@@ -6,7 +6,6 @@ from mininet.link import TCLink
 from mininet.node import CPULimitedHost
 import os
 
-
 def mainTopo():
     os.system('mn -c')
     net = Mininet(link=TCLink, host=CPULimitedHost)
@@ -55,7 +54,6 @@ def mainTopo():
     print('=================================================================================')
     Cl1.cmdPrint('wireshark &')
     Cl1.cmdPrint('echo                          Wireshark Started, Manual Override')
-
     
     CLI(net)
     net.stop()
