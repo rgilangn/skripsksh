@@ -1,7 +1,7 @@
 import pandas as pnd 
 import matplotlib.pyplot as plt
 
-data = pnd.read_csv('dataResult/BBR_LL_SK1.csv')
+data = pnd.read_csv('dataResult/ledbat_LL_SK1.csv')
 
 prin = data.iloc[1:, 7]
 
@@ -13,5 +13,5 @@ plt.autoscale(enable=True, axis='x',tight=True)
 plt.grid()
 plt.show()
 
-plt.savefig('picResult/BBR_LL_SK1.png')
+#plt.savefig('picResult/CUBIC_LL_SK1.png')
 
