@@ -1,9 +1,9 @@
 import pandas as pnd 
 import matplotlib.pyplot as plt
 
-data = pnd.read_csv('examine2_cubic_noscenario.csv')
+data = pnd.read_csv('dataResult/BBR_LL_SK1.csv')
 
-prin = data.iloc[1:, 6]
+prin = data.iloc[1:, 7]
 
 print(prin)
 plt.plot(prin)
@@ -13,5 +13,5 @@ plt.autoscale(enable=True, axis='x',tight=True)
 plt.grid()
 plt.show()
 
-plt.savefig('examine2_cubic_noscenario.png')
+plt.savefig('picResult/BBR_LL_SK1.png')
 
