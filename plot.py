@@ -1,17 +1,18 @@
 import pandas as pnd 
 import matplotlib.pyplot as plt
 
-data = pnd.read_csv('dataResult/ledbat_LL_SK1.csv')
+data = pnd.read_csv('dataResult/CUBIC_LL_SK2.csv')
 
-prin = data.iloc[1:, 7]
-
-print(prin)
-plt.plot(prin)
+x = data.iloc[1:, 1]
+y = data.iloc[1:, 7]
+print(x)
+print(y)
+plt.plot(x,y)
 plt.ylabel('Window Size Value')
 plt.xlabel('Time')
 plt.autoscale(enable=True, axis='x',tight=True)
 plt.grid()
 plt.show()
 
-#plt.savefig('picResult/CUBIC_LL_SK1.png')
+#plt.savefig('picResult/BBR_LL_SK2.png')
 
