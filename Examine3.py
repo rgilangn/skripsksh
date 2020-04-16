@@ -10,12 +10,12 @@ def mainTopo():
     os.system('mn -c')
     net = Mininet(link=TCLink, host=CPULimitedHost)
 
-    Cl1 = net.addHost('Client1', ip='192.168.1.2/29')
-    Se2 = net.addHost('Server2', ip='192.168.2.2/29')
+    Cl1 = net.addHost('Cl1', ip='192.168.1.2/29')
+    Se2 = net.addHost('Se2', ip='192.168.2.2/29')
     Ro1 = net.addHost('Router1')
 
     net.addLink(Cl1, Ro1, bw=1000)
-    net.addLink(Se2, Ro1, bw=1000, max_queue_size = 20)
+    net.addLink(Se2, Ro1, bw=1000, max_queue_size = 70)
 
     net.build()
 
@@ -44,11 +44,16 @@ def mainTopo():
     net.pingAll()
     print('=================================================================================')
 
-    #Cl1.cmdPrint('ping 192.168.1.1 -c 20 > testx.txt')
-    print('                             Server Iperf Started')
-    Se2.cmd('iperf -s &')
-    print('=================================================================================')
-    print('Define Another Queue Later')
+
+    Se2.cmd('iperf -s > dataResult/iperf-server.txt &')
+    Se2.cmdPrint('echo                          Server Iperf Started')
+    print('===============================================================================')
+    Se2.cmdPrint('python -m SimpleHTTPServer &')
+    Se2.cmdPrint('echo                          Python HTTP Server Start')
+    print('===============================================================================')
+    Cl1.cmdPrint('wireshark &')
+    Cl1.cmdPrint('echo                          Wireshark Started, Manual Override')
+
     CLI(net)
     net.stop()
 
