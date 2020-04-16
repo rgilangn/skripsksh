@@ -15,7 +15,7 @@ def mainTopo():
     Ro1 = net.addHost('Router1')
 
     net.addLink(Cl1, Ro1, bw=1000)
-    net.addLink(Se2, Ro1, bw=1000, max_queue_size = 70)
+    net.addLink(Se2, Ro1, bw=1000, max_queue_size = 100)
 
     net.build()
 
