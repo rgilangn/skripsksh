@@ -14,8 +14,8 @@ def mainTopo():
     Se2 = net.addHost('Se2', ip='192.168.2.2/29')
     Ro1 = net.addHost('Router1')
 
-    net.addLink(Cl1, Ro1, bw=1000)
-    net.addLink(Se2, Ro1, bw=1000, max_queue_size = 100)
+    net.addLink(Cl1, Ro1, bw=100)
+    net.addLink(Se2, Ro1, bw=100, max_queue_size = 100)
 
     net.build()
 
