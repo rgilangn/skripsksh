@@ -13,7 +13,7 @@ yC = dataC.iloc[1:, 7]
 xL = dataL.iloc[1:, 1]
 yL = dataL.iloc[1:, 7]
 
-plt.figure()
+plt.figure(figsize=(14,7), dpi=150)
 plt.plot(xB,yB,)
 plt.plot(xC,yC)
 plt.plot(xL,yL)
