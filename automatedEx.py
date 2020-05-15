@@ -8,6 +8,8 @@ import os
 import time
 import subprocess
 
+maxQ = 0
+
 def mainTopo():
     #Define Initial Topology on Mininet
     os.system('mn -c')
@@ -19,8 +21,8 @@ def mainTopo():
     Se2 = net.addHost('Se2', ip='192.168.2.2/29')
     Ro1 = net.addHost('Router1')
 
-    net.addLink(Cl1, Ro1, bw=1000)
-    net.addLink(Se2, Ro1, bw=1000, max_queue_size = 40)
+    net.addLink(Cl1, Ro1, bw=100)
+    net.addLink(Se2, Ro1, bw=1, max_queue_size=maxQ) #, max_queue_size = 40
 
     net.build()
 
@@ -47,55 +49,57 @@ def mainTopo():
     Se2.cmdPrint('sysctl  net.ipv4.tcp_congestion_control')
     
     ccName = subprocess.check_output('cat /proc/sys/net/ipv4/tcp_congestion_control', shell=True)
+    ccName = ccName.replace("\n","")
+
     print('===========================================================================')
 
     net.pingAll()
     print('===========================================================================')
 
-    Se2.cmd('iperf -s  > /home/reghn/Documents/testperfSe.txt &')
+    Se2.cmd('iperf -s  > dataResult/examine2/'+str(ccName)+'_'+str(maxQ)+'_LL_iperf-server.txt &')
     print('                          Server Iperf Started')
     Se2.cmd('python -m SimpleHTTPServer &')
     print('=========================================================================')
     ####    STARTING EXAMINE    ####
     print('                TCPDUMP Started Longlived for 65 s Please Wait')
     print('                              Iperf Started')
-    Cl1.cmd('tcpdump -G 62 -w /home/reghn/Documents/testdumpLL.pcapng -i Cl1-eth0 &')
-    Cl1.cmd('iperf -c 192.168.2.2 -t 60 -i 1 > /home/reghn/Documents/testperfLL.txt &')
-    Cl1.cmd('ping 192.168.2.2 -c 61 > /home/reghn/Documents/testpingLL.txt ')
+    Cl1.cmd('tcpdump -G 62 -w /home/reghn/Documents/pcapngs/_LL_.pcapng -i Cl1-eth0 &') #62s
+    Cl1.cmd('iperf -c 192.168.2.2 -t 60 -i 1 > dataResult/examine2/_LL_iperfRests.txt &') #60s
+    Cl1.cmd('ping 192.168.2.2 -c 61 > dataResult/examine2/_LL_rttRests.txt ') #61s
     
     #### rename file ####
-    os.system('mv /home/reghn/Documents/testdumpLL.pcapng /home/reghn/Documents/testdumpLL'+str(ccName)+'')
-    os.system('mv /home/reghn/Documents/testperfLL.txt /home/reghn/Documents/testperfLL'+str(ccName)+'')
-    os.system('mv /home/reghn/Documents/testpingLL.txt /home/reghn/Documents/testpingLL'+str(ccName)+'')
+    os.system('mv /home/reghn/Documents/pcapngs/_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_.pcapng')
+    os.system('mv dataResult/examine2/_LL_iperfRests.txt dataResult/examine2/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests.txt')
+    os.system('mv dataResult/examine2/_LL_rttRests.txt dataResult/examine2/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests.txt')
     print('=========================================================================')
     
     Se2.cmd('python -m SimpleHTTPServer &')
     print('                          Python HTTP Server Start')
     print('=========================================================================')
-    Cl1.cmd('tcpdump -G 5 -W 1 -w /home/reghn/Documents/testdumpSL.pcapng -i Cl1-eth0 &')
+    Cl1.cmd('tcpdump -G 5 -W 1 -w /home/reghn/Documents/pcapngs/_SL_.pcapng -i Cl1-eth0 &')
     os.system('echo                TCPDUMP Shortlived Started for 5 s Please Wait')
     Cl1.cmdPrint('wget 192.168.2.2:8000')
     print("                         Processing all file's   ")
     os.system('scrot --delay 2 restSL.png')
-    os.system('mv /home/reghn/Documents/testdumpSL.pcapng /home/reghn/Documents/testdumpSL'+str(ccName)+'')
-    os.system('mv restSL.png restSL'+str(ccName)+'')
+    os.system('mv /home/reghn/Documents/pcapngs/_SL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_SL_.pcapng')
+    os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'')
     print('=========================================================================')
 
-    CLI(net)
+    #CLI(net)
     net.stop()
 
 def runAll():
     os.system('sysctl -w net.ipv4.tcp_congestion_control=ledbat')
     mainTopo()
-    #os.system('sysctl -w net.ipv4.tcp_congestion_control=bbr')
-    #mainTopo()
+    os.system('sysctl -w net.ipv4.tcp_congestion_control=bbr')
+    mainTopo()
     #os.system('sysctl -w net.ipv4.tcp_congestion_control=cubic')
     #mainTopo()
 
 if __name__ =='__main__':
     setLogLevel('info')
     #if 
-    #maxq = [20, 200, 2000, 2000]
-    #for maxQ in maxq:
-    runAll()
+    maxq = [20, 200, 2000, 2000, 20000]
+    for maxQ in maxq:
+        runAll()
     
