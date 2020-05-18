@@ -8,7 +8,7 @@ import os
 import time
 import subprocess
 
-maxQ = 0
+maxQ = 2000
 
 def mainTopo():
     #Define Initial Topology on Mininet
@@ -89,8 +89,8 @@ def mainTopo():
     net.stop()
 
 def runAll():
-    os.system('sysctl -w net.ipv4.tcp_congestion_control=ledbat')
-    mainTopo()
+    #os.system('sysctl -w net.ipv4.tcp_congestion_control=ledbat')
+    #mainTopo()
     os.system('sysctl -w net.ipv4.tcp_congestion_control=bbr')
     mainTopo()
     #os.system('sysctl -w net.ipv4.tcp_congestion_control=cubic')
@@ -99,7 +99,7 @@ def runAll():
 if __name__ =='__main__':
     setLogLevel('info')
     #if 
-    maxq = [20, 200, 2000, 2000, 20000]
-    for maxQ in maxq:
-        runAll()
+    #maxq = [20, 200, 2000, 2000, 20000]
+    #or maxQ in maxq:
+    runAll()
     
