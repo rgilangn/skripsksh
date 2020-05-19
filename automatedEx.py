@@ -8,12 +8,13 @@ import os
 import time
 import subprocess
 
-maxQ = 10000
+maxQ = 20000
 
 def mainTopo():
     #Define Initial Topology on Mininet
     os.system('mn -c')
-
+    print('===========================================================================')
+    print('===========================================================================')
     net = Mininet(link=TCLink, host=CPULimitedHost)
     net.start()
 
@@ -22,7 +23,7 @@ def mainTopo():
     Ro1 = net.addHost('Router1')
 
     net.addLink(Cl1, Ro1, bw=100)
-    net.addLink(Se2, Ro1, bw=1, max_queue_size=maxQ) #, max_queue_size = 40
+    net.addLink(Se2, Ro1, bw=1) #, max_queue_size = 40
 
     net.build()
 
@@ -47,7 +48,7 @@ def mainTopo():
     print('===========================================================================')
     Cl1.cmdPrint('sysctl  net.ipv4.tcp_congestion_control')
     Se2.cmdPrint('sysctl  net.ipv4.tcp_congestion_control')
-    
+    print("Queue Size", maxQ)
     ccName = subprocess.check_output('cat /proc/sys/net/ipv4/tcp_congestion_control', shell=True)
     ccName = ccName.replace("\n","")
 
@@ -63,7 +64,7 @@ def mainTopo():
     ####    STARTING EXAMINE    ####
     print('                TCPDUMP Started Longlived for 65 s Please Wait')
     print('                              Iperf Started')
-    Cl1.cmd('tcpdump -G 62 -W 1 -w /home/reghn/Documents/pcapngs/_LL_.pcapng -i Cl1-eth0 &') #62s
+    Cl1.cmd('tcpdump -G 65 -W 1 -w /home/reghn/Documents/pcapngs/_LL_.pcapng -i Cl1-eth0 &') #62s
     Cl1.cmd('iperf -c 192.168.2.2 -t 60 -i 1 > dataResult/examine2/_LL_iperfRests.txt &') #60s
     Cl1.cmd('ping 192.168.2.2 -c 61 > dataResult/examine2/_LL_rttRests.txt ') #61s
     
@@ -75,17 +76,18 @@ def mainTopo():
     os.system('mv dataResult/examine2/_LL_iperfRests.txt dataResult/examine2/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests.txt')
     os.system('mv dataResult/examine2/_LL_rttRests.txt dataResult/examine2/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests.txt')
     print('=========================================================================')
-    time.sleep(10)
+    time.sleep(60)
     Se2.cmd('python -m SimpleHTTPServer &')
     print('                          Python HTTP Server Start')
     print('=========================================================================')
-    Cl1.cmd('tcpdump -G 10 -W 1 -w /home/reghn/Documents/pcapngs/_SL_.pcapng -i Cl1-eth0 &')
+    Cl1.cmd('tcpdump -G 60 -W 1 -w /home/reghn/Documents/pcapngs/_SL_.pcapng -i Cl1-eth0 &')
     os.system('echo                TCPDUMP Shortlived Started for 10 s Please Wait')
     Cl1.cmdPrint('wget 192.168.2.2:8000')
     print("                         Processing all file's   ")
     os.system('scrot --delay 2 restSL.png')
     os.system('mv /home/reghn/Documents/pcapngs/_SL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_SL_.pcapng')
     os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'')
+    time.sleep(10)
     print('=========================================================================')
 
     #CLI(net)
