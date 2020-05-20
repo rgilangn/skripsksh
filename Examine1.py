@@ -5,6 +5,10 @@ from mininet.net import Mininet
 from mininet.link import TCLink
 from mininet.node import CPULimitedHost
 import os
+import time
+import subprocess
+
+
 
 def mainTopo():
     os.system('mn -c')
@@ -45,7 +49,7 @@ def mainTopo():
     print('=================================================================================')
 
     
-    
+    #Se2.cmd('iperf -s &')
     Se2.cmd('iperf -s > dataResult/iperf-server.txt &')
     Se2.cmdPrint('echo                          Server Iperf Started')
     print('=================================================================================')
@@ -59,6 +63,7 @@ def mainTopo():
     net.stop()
 
 if __name__ =='__main__':
+    os.system('sysctl -w net.ipv4.tcp_congestion_control=cubic')
     setLogLevel('info')
     mainTopo()
     

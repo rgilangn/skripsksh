@@ -8,7 +8,7 @@ import os
 import time
 import subprocess
 
-maxQ = 2000
+maxQ = 0
 
 def mainTopo():
     #Define Initial Topology on Mininet
@@ -23,7 +23,7 @@ def mainTopo():
     Ro1 = net.addHost('Router1')
 
     net.addLink(Cl1, Ro1, bw=100)
-    net.addLink(Se2, Ro1, bw=1, max_queue_size=maxQ) #, max_queue_size = 40
+    net.addLink(Se2, Ro1, bw=100, max_queue_size=maxQ) #, max_queue_size = 40
 
     net.build()
 
@@ -57,7 +57,7 @@ def mainTopo():
     net.pingAll()
     print('===========================================================================')
 
-    Se2.cmd('iperf -s  > dataResult/examine2/'+str(ccName)+'_'+str(maxQ)+'_LL_iperf-server.txt &')
+    Se2.cmd('iperf -s  &')
     print('                          Server Iperf Started')
     Se2.cmd('python -m SimpleHTTPServer &')
     print('=========================================================================')
@@ -72,9 +72,9 @@ def mainTopo():
     #pidCode = pidCode.replace("\n","")
     #Cl1.cmd('kill '+str(pidCode)+'')
     #### rename file ####
-    os.system('mv /home/reghn/Documents/pcapngs/_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_.pcapng')
-    os.system('mv dataResult/examine2/_LL_iperfRests.txt dataResult/examine2/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests.txt')
-    os.system('mv dataResult/examine2/_LL_rttRests.txt dataResult/examine2/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests.txt')
+    #os.system('mv /home/reghn/Documents/pcapngs/_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_.pcapng')
+    #os.system('mv dataResult/examine2/_LL_iperfRests.txt dataResult/examine2/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests.txt')
+    #os.system('mv dataResult/examine2/_LL_rttRests.txt dataResult/examine2/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests.txt')
     print('=========================================================================')
     time.sleep(60)
     Se2.cmd('python -m SimpleHTTPServer &')
@@ -85,8 +85,8 @@ def mainTopo():
     Cl1.cmdPrint('wget 192.168.2.2:8000')
     print("                         Processing all file's   ")
     os.system('scrot --delay 2 restSL.png')
-    os.system('mv /home/reghn/Documents/pcapngs/_SL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_SL_.pcapng')
-    os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'')
+    #os.system('mv /home/reghn/Documents/pcapngs/_SL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_SL_.pcapng')
+    #os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'')
     time.sleep(10)
     print('=========================================================================')
 
@@ -96,15 +96,15 @@ def mainTopo():
 def runAll():
     #os.system('sysctl -w net.ipv4.tcp_congestion_control=ledbat')
     #mainTopo()
-    #os.system('sysctl -w net.ipv4.tcp_congestion_control=bbr')
+    os.system('sysctl -w net.ipv4.tcp_congestion_control=bbr')
     #mainTopo()
-    os.system('sysctl -w net.ipv4.tcp_congestion_control=cubic')
+    #os.system('sysctl -w net.ipv4.tcp_congestion_control=cubic')
     mainTopo()
 
 if __name__ =='__main__':
     setLogLevel('info')
     #if 
-    #maxq = [20, 200, 2000, 2000, 20000]
-    #or maxQ in maxq:
-    runAll()
+    maxq = [20, 40, 70, 100]
+    for maxQ in maxq:
+        runAll()
     

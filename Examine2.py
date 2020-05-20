@@ -45,8 +45,8 @@ def mainTopo():
     print('===============================================================================')
 
     
-
-    Se2.cmd('iperf -s > dataResult/iperf-server.txt &')
+    Se2.cmd('iperf -s &')
+    #Se2.cmd('iperf -s > dataResult/iperf-server.txt &')
     Se2.cmdPrint('echo                          Server Iperf Started')
     print('===============================================================================')
     Se2.cmdPrint('python -m SimpleHTTPServer &')
@@ -60,6 +60,7 @@ def mainTopo():
     
 
 if __name__ =='__main__':
+    os.system('sysctl -w net.ipv4.tcp_congestion_control=ledbat')
     setLogLevel('info')
     mainTopo()
     
