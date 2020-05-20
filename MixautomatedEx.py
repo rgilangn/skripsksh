@@ -96,17 +96,17 @@ def mainTopo():
     net.stop()
 
 def runAll():
-    os.system('sysctl -w net.ipv4.tcp_congestion_control=cubic')
+    #os.system('sysctl -w net.ipv4.tcp_congestion_control=cubic')
     #mainTopo()
     #os.system('sysctl -w net.ipv4.tcp_congestion_control=bbr')
     #mainTopo()
-    #os.system('sysctl -w net.ipv4.tcp_congestion_control=ledbat')
+    os.system('sysctl -w net.ipv4.tcp_congestion_control=ledbat')
     mainTopo()
 
 if __name__ =='__main__':
     setLogLevel('info')
     
-    maxq = [20, 20000]
+    maxq = [20000]
     for maxQ in maxq:
         runAll()
     
