@@ -8,7 +8,7 @@ import os
 import time
 import subprocess
 
-maxQ = 20000
+maxQ = 2000
 
 def mainTopo():
     #Define Initial Topology on Mininet
@@ -23,7 +23,7 @@ def mainTopo():
     Ro1 = net.addHost('Router1')
 
     net.addLink(Cl1, Ro1, bw=100)
-    net.addLink(Se2, Ro1, bw=1) #, max_queue_size = 40
+    net.addLink(Se2, Ro1, bw=1, max_queue_size=maxQ) #, max_queue_size = 40
 
     net.build()
 
