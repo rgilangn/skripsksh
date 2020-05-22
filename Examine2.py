@@ -14,8 +14,8 @@ def mainTopo():
     Se2 = net.addHost('Se2', ip='192.168.2.2/29')
     Ro1 = net.addHost('Router1')
 
-    net.addLink(Cl1, Ro1, bw=100)
-    net.addLink(Se2, Ro1, bw=50)
+    net.addLink(Cl1, Ro1, bw=1, max_queue_size=20000)
+    net.addLink(Se2, Ro1, bw=100)
 
     net.build()
 
@@ -60,7 +60,6 @@ def mainTopo():
     
 
 if __name__ =='__main__':
-    os.system('sysctl -w net.ipv4.tcp_congestion_control=ledbat')
     setLogLevel('info')
     mainTopo()
     
