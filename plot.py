@@ -1,9 +1,9 @@
 import pandas as pnd 
 import matplotlib.pyplot as plt
 
-dataB = pnd.read_csv('dataResult/examine3/bbr_20000_mix_LL_.csv')
-dataC = pnd.read_csv('dataResult/examine3/cubic_20000_mix_LL_.csv')
-dataL = pnd.read_csv('dataResult/examine3/ledbat_20000_mix_LL_.csv')
+dataB = pnd.read_csv('dataResult/examine2/bbr_SK2_0_LL_.csv')
+dataC = pnd.read_csv('dataResult/examine2/cubic_SK2_0_LL_.csv')
+dataL = pnd.read_csv('dataResult/examine2/ledbat_SK2_0_LL_.csv')
 
 
 xB = dataB.iloc[1:, 1]
@@ -21,7 +21,7 @@ plt.ylabel('Window Size Value')
 plt.xlabel('Time')
 plt.autoscale(enable=True, axis='x',tight=True)
 plt.legend(['BBR', 'Cubic', 'Ledbat'])
-
+plt.suptitle('CWND Dengan Queue Size Default. Long Lived')
 #plt.savefig('picResults/ledbat_LL_SK2.png')
 plt.show()
 
