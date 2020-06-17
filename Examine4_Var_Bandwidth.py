@@ -38,7 +38,21 @@ def mainTopo():
     Ro1 = net.addHost('Router1')
 
     net.addLink(Cl1, Ro1, bw=1)
+    net.addLink(Cl2, Ro1, bw=1)
+    net.addLink(Cl3, Ro1, bw=1)
+    net.addLink(Cl4, Ro1, bw=1)
+    net.addLink(Cl5, Ro1, bw=1)
+    net.addLink(Cl6, Ro1, bw=1)
+    net.addLink(Cl7, Ro1, bw=1)
+    net.addLink(Cl8, Ro1, bw=1)
+    net.addLink(Se1, Ro1, bw=100) #, max_queue_size = maxQ
     net.addLink(Se2, Ro1, bw=100) #, max_queue_size = maxQ
+    net.addLink(Se3, Ro1, bw=100) #, max_queue_size = maxQ
+    net.addLink(Se4, Ro1, bw=100) #, max_queue_size = maxQ
+    net.addLink(Se5, Ro1, bw=100) #, max_queue_size = maxQ
+    net.addLink(Se6, Ro1, bw=100) #, max_queue_size = maxQ
+    net.addLink(Se7, Ro1, bw=100) #, max_queue_size = maxQ
+    net.addLink(Se8, Ro1, bw=100) #, max_queue_size = maxQ
 
 
     net.build()
@@ -51,7 +65,6 @@ def mainTopo():
     Ro1.cmd('ifconfig Router1-eth5 0')
     Ro1.cmd('ifconfig Router1-eth6 0')
     Ro1.cmd('ifconfig Router1-eth7 0')
-
     Ro1.cmd('ifconfig Router1-eth8 0')
     Ro1.cmd('ifconfig Router1-eth9 0')
     Ro1.cmd('ifconfig Router1-eth10 0')
@@ -69,8 +82,6 @@ def mainTopo():
     Ro1.cmd('ifconfig Router1-eth5')
     Ro1.cmd('ifconfig Router1-eth6')
     Ro1.cmd('ifconfig Router1-eth7')
-
-    
     Ro1.cmd('ifconfig Router1-eth8')
     Ro1.cmd('ifconfig Router1-eth9')
     Ro1.cmd('ifconfig Router1-eth10')
