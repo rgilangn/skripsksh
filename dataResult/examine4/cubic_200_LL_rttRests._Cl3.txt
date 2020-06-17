@@ -1,15 +1,24 @@
 PING 192.168.30.2 (192.168.30.2) 56(84) bytes of data.
-64 bytes from 192.168.30.2: icmp_seq=1 ttl=63 time=0.037 ms
-64 bytes from 192.168.30.2: icmp_seq=2 ttl=63 time=710 ms
-64 bytes from 192.168.30.2: icmp_seq=3 ttl=63 time=776 ms
-64 bytes from 192.168.30.2: icmp_seq=4 ttl=63 time=819 ms
-64 bytes from 192.168.30.2: icmp_seq=5 ttl=63 time=879 ms
-64 bytes from 192.168.30.2: icmp_seq=6 ttl=63 time=977 ms
-64 bytes from 192.168.30.2: icmp_seq=7 ttl=63 time=1129 ms
-64 bytes from 192.168.30.2: icmp_seq=8 ttl=63 time=1444 ms
-64 bytes from 192.168.30.2: icmp_seq=9 ttl=63 time=1859 ms
-64 bytes from 192.168.30.2: icmp_seq=10 ttl=63 time=2331 ms
-64 bytes from 192.168.30.2: icmp_seq=11 ttl=63 time=2882 ms
-64 bytes from 192.168.30.2: icmp_seq=12 ttl=63 time=3376 ms
-64 bytes from 192.168.30.2: icmp_seq=13 ttl=63 time=3876 ms
-64 bytes from 192.168.30.2: icmp_seq=16 ttl=63 time=4364 ms
+64 bytes from 192.168.30.2: icmp_seq=1 ttl=63 time=0.043 ms
+64 bytes from 192.168.30.2: icmp_seq=2 ttl=63 time=691 ms
+64 bytes from 192.168.30.2: icmp_seq=3 ttl=63 time=755 ms
+64 bytes from 192.168.30.2: icmp_seq=4 ttl=63 time=797 ms
+64 bytes from 192.168.30.2: icmp_seq=5 ttl=63 time=837 ms
+64 bytes from 192.168.30.2: icmp_seq=6 ttl=63 time=952 ms
+64 bytes from 192.168.30.2: icmp_seq=7 ttl=63 time=1116 ms
+64 bytes from 192.168.30.2: icmp_seq=8 ttl=63 time=1430 ms
+64 bytes from 192.168.30.2: icmp_seq=9 ttl=63 time=1836 ms
+64 bytes from 192.168.30.2: icmp_seq=10 ttl=63 time=2379 ms
+64 bytes from 192.168.30.2: icmp_seq=11 ttl=63 time=2861 ms
+64 bytes from 192.168.30.2: icmp_seq=12 ttl=63 time=3365 ms
+64 bytes from 192.168.30.2: icmp_seq=13 ttl=63 time=3878 ms
+64 bytes from 192.168.30.2: icmp_seq=15 ttl=63 time=4342 ms
+64 bytes from 192.168.30.2: icmp_seq=24 ttl=63 time=3409 ms
+64 bytes from 192.168.30.2: icmp_seq=27 ttl=63 time=3353 ms
+64 bytes from 192.168.30.2: icmp_seq=28 ttl=63 time=3345 ms
+64 bytes from 192.168.30.2: icmp_seq=29 ttl=63 time=3275 ms
+64 bytes from 192.168.30.2: icmp_seq=30 ttl=63 time=3146 ms
+
+--- 192.168.30.2 ping statistics ---
+30 packets transmitted, 19 received, 36% packet loss, time 29299ms
+rtt min/avg/max/mdev = 0.043/2198.874/4342.848/1295.301 ms, pipe 5

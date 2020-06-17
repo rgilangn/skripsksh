@@ -2,4 +2,6 @@
 Server listening on TCP port 5001
 TCP window size: 85.3 KByte (default)
 ------------------------------------------------------------
-[  4] local 192.168.80.2 port 5001 connected with 192.168.8.2 port 49204
+[  4] local 192.168.80.2 port 5001 connected with 192.168.8.2 port 49932
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0-33.5 sec  3.81 MBytes   955 Kbits/sec
