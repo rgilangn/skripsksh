@@ -1,0 +1,22 @@
+PING 192.168.80.2 (192.168.80.2) 56(84) bytes of data.
+64 bytes from 192.168.80.2: icmp_seq=1 ttl=63 time=230 ms
+64 bytes from 192.168.80.2: icmp_seq=2 ttl=63 time=870 ms
+64 bytes from 192.168.80.2: icmp_seq=3 ttl=63 time=1689 ms
+64 bytes from 192.168.80.2: icmp_seq=4 ttl=63 time=1823 ms
+64 bytes from 192.168.80.2: icmp_seq=5 ttl=63 time=1707 ms
+64 bytes from 192.168.80.2: icmp_seq=6 ttl=63 time=1833 ms
+64 bytes from 192.168.80.2: icmp_seq=7 ttl=63 time=1802 ms
+64 bytes from 192.168.80.2: icmp_seq=8 ttl=63 time=1921 ms
+64 bytes from 192.168.80.2: icmp_seq=9 ttl=63 time=1837 ms
+64 bytes from 192.168.80.2: icmp_seq=10 ttl=63 time=1824 ms
+64 bytes from 192.168.80.2: icmp_seq=11 ttl=63 time=1817 ms
+64 bytes from 192.168.80.2: icmp_seq=12 ttl=63 time=818 ms
+64 bytes from 192.168.80.2: icmp_seq=13 ttl=63 time=2096 ms
+64 bytes from 192.168.80.2: icmp_seq=14 ttl=63 time=2880 ms
+64 bytes from 192.168.80.2: icmp_seq=15 ttl=63 time=3386 ms
+64 bytes from 192.168.80.2: icmp_seq=16 ttl=63 time=2380 ms
+64 bytes from 192.168.80.2: icmp_seq=17 ttl=63 time=1383 ms
+64 bytes from 192.168.80.2: icmp_seq=18 ttl=63 time=475 ms
+64 bytes from 192.168.80.2: icmp_seq=19 ttl=63 time=181 ms
+64 bytes from 192.168.80.2: icmp_seq=20 ttl=63 time=145 ms
+64 bytes from 192.168.80.2: icmp_seq=21 ttl=63 time=86.2 ms

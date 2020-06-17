@@ -1,0 +1,21 @@
+------------------------------------------------------------
+Client connecting to 192.168.20.2, TCP port 5001
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.2.2 port 60566 connected with 192.168.20.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec   571 KBytes  4.68 Mbits/sec
+[  3]  1.0- 2.0 sec   137 KBytes  1.12 Mbits/sec
+[  3]  2.0- 3.0 sec   191 KBytes  1.56 Mbits/sec
+[  3]  3.0- 4.0 sec   127 KBytes  1.04 Mbits/sec
+[  3]  4.0- 5.0 sec  63.6 KBytes   521 Kbits/sec
+[  3]  5.0- 6.0 sec   255 KBytes  2.09 Mbits/sec
+[  3]  6.0- 7.0 sec   255 KBytes  2.09 Mbits/sec
+[  3]  7.0- 8.0 sec   382 KBytes  3.13 Mbits/sec
+[  3]  8.0- 9.0 sec   382 KBytes  3.13 Mbits/sec
+[  3]  9.0-10.0 sec   509 KBytes  4.17 Mbits/sec
+[  3] 10.0-11.0 sec   382 KBytes  3.13 Mbits/sec
+[  3] 11.0-12.0 sec   445 KBytes  3.65 Mbits/sec
+[  3] 12.0-13.0 sec   445 KBytes  3.65 Mbits/sec
+[  3] 13.0-14.0 sec   509 KBytes  4.17 Mbits/sec
+[  3] 14.0-15.0 sec   445 KBytes  3.65 Mbits/sec
