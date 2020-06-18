@@ -1,0 +1,35 @@
+PING 192.168.10.2 (192.168.10.2) 56(84) bytes of data.
+64 bytes from 192.168.10.2: icmp_seq=1 ttl=63 time=0.048 ms
+64 bytes from 192.168.10.2: icmp_seq=2 ttl=63 time=951 ms
+64 bytes from 192.168.10.2: icmp_seq=3 ttl=63 time=2347 ms
+64 bytes from 192.168.10.2: icmp_seq=4 ttl=63 time=3535 ms
+64 bytes from 192.168.10.2: icmp_seq=5 ttl=63 time=3366 ms
+64 bytes from 192.168.10.2: icmp_seq=6 ttl=63 time=3217 ms
+64 bytes from 192.168.10.2: icmp_seq=7 ttl=63 time=3059 ms
+64 bytes from 192.168.10.2: icmp_seq=8 ttl=63 time=3509 ms
+64 bytes from 192.168.10.2: icmp_seq=9 ttl=63 time=3520 ms
+64 bytes from 192.168.10.2: icmp_seq=10 ttl=63 time=3352 ms
+64 bytes from 192.168.10.2: icmp_seq=11 ttl=63 time=3363 ms
+64 bytes from 192.168.10.2: icmp_seq=12 ttl=63 time=2365 ms
+64 bytes from 192.168.10.2: icmp_seq=13 ttl=63 time=1367 ms
+64 bytes from 192.168.10.2: icmp_seq=14 ttl=63 time=369 ms
+64 bytes from 192.168.10.2: icmp_seq=15 ttl=63 time=3960 ms
+64 bytes from 192.168.10.2: icmp_seq=16 ttl=63 time=6216 ms
+64 bytes from 192.168.10.2: icmp_seq=17 ttl=63 time=7334 ms
+64 bytes from 192.168.10.2: icmp_seq=18 ttl=63 time=8433 ms
+64 bytes from 192.168.10.2: icmp_seq=19 ttl=63 time=9563 ms
+64 bytes from 192.168.10.2: icmp_seq=20 ttl=63 time=9025 ms
+64 bytes from 192.168.10.2: icmp_seq=21 ttl=63 time=11790 ms
+64 bytes from 192.168.10.2: icmp_seq=22 ttl=63 time=11239 ms
+64 bytes from 192.168.10.2: icmp_seq=23 ttl=63 time=14026 ms
+64 bytes from 192.168.10.2: icmp_seq=24 ttl=63 time=13490 ms
+64 bytes from 192.168.10.2: icmp_seq=25 ttl=63 time=12845 ms
+64 bytes from 192.168.10.2: icmp_seq=26 ttl=63 time=11835 ms
+64 bytes from 192.168.10.2: icmp_seq=27 ttl=63 time=10838 ms
+64 bytes from 192.168.10.2: icmp_seq=28 ttl=63 time=9821 ms
+64 bytes from 192.168.10.2: icmp_seq=29 ttl=63 time=8821 ms
+64 bytes from 192.168.10.2: icmp_seq=30 ttl=63 time=7810 ms
+
+--- 192.168.10.2 ping statistics ---
+30 packets transmitted, 30 received, 0% packet loss, time 29288ms
+rtt min/avg/max/mdev = 0.048/6379.364/14026.317/4234.888 ms, pipe 10

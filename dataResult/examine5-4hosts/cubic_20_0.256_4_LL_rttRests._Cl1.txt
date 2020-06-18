@@ -1,0 +1,28 @@
+PING 192.168.10.2 (192.168.10.2) 56(84) bytes of data.
+64 bytes from 192.168.10.2: icmp_seq=1 ttl=63 time=897 ms
+64 bytes from 192.168.10.2: icmp_seq=2 ttl=63 time=1466 ms
+64 bytes from 192.168.10.2: icmp_seq=3 ttl=63 time=1447 ms
+64 bytes from 192.168.10.2: icmp_seq=4 ttl=63 time=1583 ms
+64 bytes from 192.168.10.2: icmp_seq=8 ttl=63 time=2361 ms
+64 bytes from 192.168.10.2: icmp_seq=10 ttl=63 time=315 ms
+64 bytes from 192.168.10.2: icmp_seq=11 ttl=63 time=884 ms
+64 bytes from 192.168.10.2: icmp_seq=12 ttl=63 time=1050 ms
+64 bytes from 192.168.10.2: icmp_seq=13 ttl=63 time=921 ms
+64 bytes from 192.168.10.2: icmp_seq=14 ttl=63 time=900 ms
+64 bytes from 192.168.10.2: icmp_seq=15 ttl=63 time=682 ms
+64 bytes from 192.168.10.2: icmp_seq=16 ttl=63 time=941 ms
+64 bytes from 192.168.10.2: icmp_seq=17 ttl=63 time=1101 ms
+64 bytes from 192.168.10.2: icmp_seq=18 ttl=63 time=1146 ms
+64 bytes from 192.168.10.2: icmp_seq=19 ttl=63 time=898 ms
+64 bytes from 192.168.10.2: icmp_seq=20 ttl=63 time=1096 ms
+64 bytes from 192.168.10.2: icmp_seq=21 ttl=63 time=967 ms
+64 bytes from 192.168.10.2: icmp_seq=22 ttl=63 time=1013 ms
+64 bytes from 192.168.10.2: icmp_seq=23 ttl=63 time=1138 ms
+64 bytes from 192.168.10.2: icmp_seq=24 ttl=63 time=1249 ms
+64 bytes from 192.168.10.2: icmp_seq=25 ttl=63 time=1339 ms
+64 bytes from 192.168.10.2: icmp_seq=26 ttl=63 time=1290 ms
+64 bytes from 192.168.10.2: icmp_seq=27 ttl=63 time=1477 ms
+
+--- 192.168.10.2 ping statistics ---
+30 packets transmitted, 23 received, 23% packet loss, time 29250ms
+rtt min/avg/max/mdev = 315.654/1137.895/2361.835/381.765 ms, pipe 3

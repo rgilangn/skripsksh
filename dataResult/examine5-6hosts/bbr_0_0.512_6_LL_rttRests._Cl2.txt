@@ -1,0 +1,35 @@
+PING 192.168.20.2 (192.168.20.2) 56(84) bytes of data.
+64 bytes from 192.168.20.2: icmp_seq=1 ttl=63 time=0.045 ms
+64 bytes from 192.168.20.2: icmp_seq=2 ttl=63 time=977 ms
+64 bytes from 192.168.20.2: icmp_seq=3 ttl=63 time=2815 ms
+64 bytes from 192.168.20.2: icmp_seq=4 ttl=63 time=3298 ms
+64 bytes from 192.168.20.2: icmp_seq=5 ttl=63 time=3213 ms
+64 bytes from 192.168.20.2: icmp_seq=6 ttl=63 time=3467 ms
+64 bytes from 192.168.20.2: icmp_seq=7 ttl=63 time=3526 ms
+64 bytes from 192.168.20.2: icmp_seq=8 ttl=63 time=3567 ms
+64 bytes from 192.168.20.2: icmp_seq=9 ttl=63 time=3466 ms
+64 bytes from 192.168.20.2: icmp_seq=10 ttl=63 time=3388 ms
+64 bytes from 192.168.20.2: icmp_seq=11 ttl=63 time=3454 ms
+64 bytes from 192.168.20.2: icmp_seq=12 ttl=63 time=2452 ms
+64 bytes from 192.168.20.2: icmp_seq=13 ttl=63 time=1453 ms
+64 bytes from 192.168.20.2: icmp_seq=14 ttl=63 time=455 ms
+64 bytes from 192.168.20.2: icmp_seq=15 ttl=63 time=4564 ms
+64 bytes from 192.168.20.2: icmp_seq=16 ttl=63 time=4984 ms
+64 bytes from 192.168.20.2: icmp_seq=17 ttl=63 time=5784 ms
+64 bytes from 192.168.20.2: icmp_seq=18 ttl=63 time=7093 ms
+64 bytes from 192.168.20.2: icmp_seq=19 ttl=63 time=8928 ms
+64 bytes from 192.168.20.2: icmp_seq=20 ttl=63 time=10147 ms
+64 bytes from 192.168.20.2: icmp_seq=21 ttl=63 time=10263 ms
+64 bytes from 192.168.20.2: icmp_seq=22 ttl=63 time=10942 ms
+64 bytes from 192.168.20.2: icmp_seq=23 ttl=63 time=11176 ms
+64 bytes from 192.168.20.2: icmp_seq=24 ttl=63 time=11180 ms
+64 bytes from 192.168.20.2: icmp_seq=25 ttl=63 time=10158 ms
+64 bytes from 192.168.20.2: icmp_seq=26 ttl=63 time=9158 ms
+64 bytes from 192.168.20.2: icmp_seq=27 ttl=63 time=8147 ms
+64 bytes from 192.168.20.2: icmp_seq=28 ttl=63 time=7146 ms
+64 bytes from 192.168.20.2: icmp_seq=29 ttl=63 time=6134 ms
+64 bytes from 192.168.20.2: icmp_seq=30 ttl=63 time=5110 ms
+
+--- 192.168.20.2 ping statistics ---
+30 packets transmitted, 30 received, 0% packet loss, time 29278ms
+rtt min/avg/max/mdev = 0.045/5548.675/11180.778/3380.485 ms, pipe 11

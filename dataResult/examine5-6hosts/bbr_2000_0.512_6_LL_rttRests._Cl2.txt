@@ -1,0 +1,35 @@
+PING 192.168.20.2 (192.168.20.2) 56(84) bytes of data.
+64 bytes from 192.168.20.2: icmp_seq=1 ttl=63 time=0.031 ms
+64 bytes from 192.168.20.2: icmp_seq=2 ttl=63 time=829 ms
+64 bytes from 192.168.20.2: icmp_seq=3 ttl=63 time=2337 ms
+64 bytes from 192.168.20.2: icmp_seq=4 ttl=63 time=3512 ms
+64 bytes from 192.168.20.2: icmp_seq=5 ttl=63 time=3507 ms
+64 bytes from 192.168.20.2: icmp_seq=6 ttl=63 time=2867 ms
+64 bytes from 192.168.20.2: icmp_seq=7 ttl=63 time=3417 ms
+64 bytes from 192.168.20.2: icmp_seq=8 ttl=63 time=3412 ms
+64 bytes from 192.168.20.2: icmp_seq=9 ttl=63 time=3168 ms
+64 bytes from 192.168.20.2: icmp_seq=10 ttl=63 time=3373 ms
+64 bytes from 192.168.20.2: icmp_seq=11 ttl=63 time=3343 ms
+64 bytes from 192.168.20.2: icmp_seq=12 ttl=63 time=2343 ms
+64 bytes from 192.168.20.2: icmp_seq=13 ttl=63 time=1343 ms
+64 bytes from 192.168.20.2: icmp_seq=14 ttl=63 time=346 ms
+64 bytes from 192.168.20.2: icmp_seq=15 ttl=63 time=3699 ms
+64 bytes from 192.168.20.2: icmp_seq=16 ttl=63 time=5770 ms
+64 bytes from 192.168.20.2: icmp_seq=17 ttl=63 time=6642 ms
+64 bytes from 192.168.20.2: icmp_seq=18 ttl=63 time=5860 ms
+64 bytes from 192.168.20.2: icmp_seq=19 ttl=63 time=4859 ms
+64 bytes from 192.168.20.2: icmp_seq=20 ttl=63 time=3845 ms
+64 bytes from 192.168.20.2: icmp_seq=21 ttl=63 time=2821 ms
+64 bytes from 192.168.20.2: icmp_seq=22 ttl=63 time=1825 ms
+64 bytes from 192.168.20.2: icmp_seq=23 ttl=63 time=960 ms
+64 bytes from 192.168.20.2: icmp_seq=24 ttl=63 time=388 ms
+64 bytes from 192.168.20.2: icmp_seq=25 ttl=63 time=80.2 ms
+64 bytes from 192.168.20.2: icmp_seq=26 ttl=63 time=287 ms
+64 bytes from 192.168.20.2: icmp_seq=27 ttl=63 time=208 ms
+64 bytes from 192.168.20.2: icmp_seq=28 ttl=63 time=271 ms
+64 bytes from 192.168.20.2: icmp_seq=29 ttl=63 time=248 ms
+64 bytes from 192.168.20.2: icmp_seq=30 ttl=63 time=243 ms
+
+--- 192.168.20.2 ping statistics ---
+30 packets transmitted, 30 received, 0% packet loss, time 29210ms
+rtt min/avg/max/mdev = 0.031/2393.863/6642.618/1888.375 ms, pipe 7

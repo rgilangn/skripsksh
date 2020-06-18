@@ -1,0 +1,12 @@
+------------------------------------------------------------
+Client connecting to 192.168.30.2, TCP port 5001
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.3.2 port 40674 connected with 192.168.30.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec   127 KBytes  1.04 Mbits/sec
+[  3]  1.0- 2.0 sec  63.6 KBytes   521 Kbits/sec
+[  3]  2.0- 3.0 sec  42.4 KBytes   348 Kbits/sec
+[  3]  3.0- 4.0 sec  42.4 KBytes   348 Kbits/sec
+[  3]  4.0- 5.0 sec  42.4 KBytes   348 Kbits/sec
+[  3]  5.0- 6.0 sec  42.4 KBytes   348 Kbits/sec
