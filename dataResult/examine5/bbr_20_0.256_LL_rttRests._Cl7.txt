@@ -1,0 +1,18 @@
+PING 192.168.70.2 (192.168.70.2) 56(84) bytes of data.
+64 bytes from 192.168.70.2: icmp_seq=1 ttl=63 time=898 ms
+64 bytes from 192.168.70.2: icmp_seq=2 ttl=63 time=1683 ms
+64 bytes from 192.168.70.2: icmp_seq=3 ttl=63 time=2595 ms
+64 bytes from 192.168.70.2: icmp_seq=4 ttl=63 time=3205 ms
+64 bytes from 192.168.70.2: icmp_seq=5 ttl=63 time=3335 ms
+64 bytes from 192.168.70.2: icmp_seq=6 ttl=63 time=4185 ms
+64 bytes from 192.168.70.2: icmp_seq=9 ttl=63 time=5767 ms
+64 bytes from 192.168.70.2: icmp_seq=12 ttl=63 time=4320 ms
+64 bytes from 192.168.70.2: icmp_seq=13 ttl=63 time=3303 ms
+64 bytes from 192.168.70.2: icmp_seq=14 ttl=63 time=2286 ms
+64 bytes from 192.168.70.2: icmp_seq=15 ttl=63 time=1288 ms
+64 bytes from 192.168.70.2: icmp_seq=16 ttl=63 time=466 ms
+64 bytes from 192.168.70.2: icmp_seq=17 ttl=63 time=8750 ms
+64 bytes from 192.168.70.2: icmp_seq=27 ttl=63 time=10913 ms
+64 bytes from 192.168.70.2: icmp_seq=28 ttl=63 time=9891 ms
+64 bytes from 192.168.70.2: icmp_seq=29 ttl=63 time=8871 ms
+64 bytes from 192.168.70.2: icmp_seq=30 ttl=63 time=7851 ms

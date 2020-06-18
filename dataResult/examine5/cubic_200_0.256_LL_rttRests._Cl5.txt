@@ -1,0 +1,35 @@
+PING 192.168.50.2 (192.168.50.2) 56(84) bytes of data.
+64 bytes from 192.168.50.2: icmp_seq=1 ttl=63 time=0.046 ms
+64 bytes from 192.168.50.2: icmp_seq=2 ttl=63 time=1460 ms
+64 bytes from 192.168.50.2: icmp_seq=3 ttl=63 time=2245 ms
+64 bytes from 192.168.50.2: icmp_seq=4 ttl=63 time=2713 ms
+64 bytes from 192.168.50.2: icmp_seq=5 ttl=63 time=2791 ms
+64 bytes from 192.168.50.2: icmp_seq=6 ttl=63 time=2934 ms
+64 bytes from 192.168.50.2: icmp_seq=7 ttl=63 time=3072 ms
+64 bytes from 192.168.50.2: icmp_seq=8 ttl=63 time=3490 ms
+64 bytes from 192.168.50.2: icmp_seq=9 ttl=63 time=3969 ms
+64 bytes from 192.168.50.2: icmp_seq=10 ttl=63 time=4520 ms
+64 bytes from 192.168.50.2: icmp_seq=11 ttl=63 time=4894 ms
+64 bytes from 192.168.50.2: icmp_seq=12 ttl=63 time=5404 ms
+64 bytes from 192.168.50.2: icmp_seq=13 ttl=63 time=5927 ms
+64 bytes from 192.168.50.2: icmp_seq=14 ttl=63 time=6505 ms
+64 bytes from 192.168.50.2: icmp_seq=15 ttl=63 time=6930 ms
+64 bytes from 192.168.50.2: icmp_seq=16 ttl=63 time=7443 ms
+64 bytes from 192.168.50.2: icmp_seq=17 ttl=63 time=7984 ms
+64 bytes from 192.168.50.2: icmp_seq=18 ttl=63 time=8446 ms
+64 bytes from 192.168.50.2: icmp_seq=19 ttl=63 time=9015 ms
+64 bytes from 192.168.50.2: icmp_seq=20 ttl=63 time=9571 ms
+64 bytes from 192.168.50.2: icmp_seq=21 ttl=63 time=9947 ms
+64 bytes from 192.168.50.2: icmp_seq=22 ttl=63 time=10467 ms
+64 bytes from 192.168.50.2: icmp_seq=23 ttl=63 time=11021 ms
+64 bytes from 192.168.50.2: icmp_seq=24 ttl=63 time=11490 ms
+64 bytes from 192.168.50.2: icmp_seq=25 ttl=63 time=12010 ms
+64 bytes from 192.168.50.2: icmp_seq=26 ttl=63 time=12473 ms
+64 bytes from 192.168.50.2: icmp_seq=27 ttl=63 time=13078 ms
+64 bytes from 192.168.50.2: icmp_seq=28 ttl=63 time=13596 ms
+64 bytes from 192.168.50.2: icmp_seq=29 ttl=63 time=14009 ms
+64 bytes from 192.168.50.2: icmp_seq=30 ttl=63 time=14432 ms
+
+--- 192.168.50.2 ping statistics ---
+30 packets transmitted, 30 received, 0% packet loss, time 29182ms
+rtt min/avg/max/mdev = 0.046/7394.964/14432.920/4133.500 ms, pipe 10

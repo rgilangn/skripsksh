@@ -1,0 +1,22 @@
+PING 192.168.70.2 (192.168.70.2) 56(84) bytes of data.
+64 bytes from 192.168.70.2: icmp_seq=1 ttl=63 time=450 ms
+64 bytes from 192.168.70.2: icmp_seq=2 ttl=63 time=876 ms
+64 bytes from 192.168.70.2: icmp_seq=3 ttl=63 time=1297 ms
+64 bytes from 192.168.70.2: icmp_seq=4 ttl=63 time=3235 ms
+64 bytes from 192.168.70.2: icmp_seq=5 ttl=63 time=3514 ms
+64 bytes from 192.168.70.2: icmp_seq=11 ttl=63 time=2538 ms
+64 bytes from 192.168.70.2: icmp_seq=12 ttl=63 time=1514 ms
+64 bytes from 192.168.70.2: icmp_seq=13 ttl=63 time=490 ms
+64 bytes from 192.168.70.2: icmp_seq=14 ttl=63 time=4129 ms
+64 bytes from 192.168.70.2: icmp_seq=19 ttl=63 time=6216 ms
+64 bytes from 192.168.70.2: icmp_seq=24 ttl=63 time=3923 ms
+64 bytes from 192.168.70.2: icmp_seq=25 ttl=63 time=2902 ms
+64 bytes from 192.168.70.2: icmp_seq=26 ttl=63 time=1924 ms
+64 bytes from 192.168.70.2: icmp_seq=27 ttl=63 time=916 ms
+64 bytes from 192.168.70.2: icmp_seq=28 ttl=63 time=134 ms
+64 bytes from 192.168.70.2: icmp_seq=29 ttl=63 time=239 ms
+64 bytes from 192.168.70.2: icmp_seq=30 ttl=63 time=312 ms
+
+--- 192.168.70.2 ping statistics ---
+30 packets transmitted, 17 received, 43% packet loss, time 29382ms
+rtt min/avg/max/mdev = 134.260/2036.369/6216.704/1683.847 ms, pipe 7

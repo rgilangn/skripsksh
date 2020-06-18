@@ -9,6 +9,7 @@ import time
 import subprocess
 
 maxQ = 0
+BW = 0
 
 def mainTopo():
     #Define Initial Topology on Mininet
@@ -48,14 +49,14 @@ def mainTopo():
     net.addLink(Cl7, Ro1, bw=100)
     net.addLink(Cl8, Ro1, bw=100)
 
-    net.addLink(Se1, Ro1, bw=1, max_queue_size = maxQ) #, max_queue_size = maxQ
-    net.addLink(Se2, Ro1, bw=1, max_queue_size = maxQ) #, max_queue_size = maxQ
-    net.addLink(Se3, Ro1, bw=1, max_queue_size = maxQ) #, max_queue_size = maxQ
-    net.addLink(Se4, Ro1, bw=1, max_queue_size = maxQ) #, max_queue_size = maxQ
-    net.addLink(Se5, Ro1, bw=1, max_queue_size = maxQ) #, max_queue_size = maxQ
-    net.addLink(Se6, Ro1, bw=1, max_queue_size = maxQ) #, max_queue_size = maxQ
-    net.addLink(Se7, Ro1, bw=1, max_queue_size = maxQ) #, max_queue_size = maxQ
-    net.addLink(Se8, Ro1, bw=1, max_queue_size = maxQ) #, max_queue_size = maxQ
+    net.addLink(Se1, Ro1, bw=BW) #, max_queue_size = maxQ
+    net.addLink(Se2, Ro1, bw=BW) #
+    net.addLink(Se3, Ro1, bw=BW) #
+    net.addLink(Se4, Ro1, bw=BW) #
+    net.addLink(Se5, Ro1, bw=BW) #
+    net.addLink(Se6, Ro1, bw=BW) #
+    net.addLink(Se7, Ro1, bw=BW) #
+    net.addLink(Se8, Ro1, bw=BW) #
 
 
     net.build()
@@ -137,7 +138,8 @@ def mainTopo():
     print('===========================================================================')
     Cl1.cmdPrint('sysctl  net.ipv4.tcp_congestion_control')
     Se2.cmdPrint('sysctl  net.ipv4.tcp_congestion_control')
-    print("Queue Size", maxQ)
+    print("QUEUE_SIZE", maxQ)
+    print("LINK_BANDWIDTH, RO-SE ", BW)
     ccName = subprocess.check_output('cat /proc/sys/net/ipv4/tcp_congestion_control', shell=True)
     ccName = ccName.replace("\n","")
 
@@ -147,14 +149,14 @@ def mainTopo():
     print('===========================================================================')
 
     # Se2.cmd('iperf -s &')
-    Se1.cmd('iperf -s  > dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperf-server1.txt &')
-    Se2.cmd('iperf -s  > dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperf-server2.txt &')
-    Se3.cmd('iperf -s  > dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperf-server3.txt &')
-    Se4.cmd('iperf -s  > dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperf-server4.txt &')
-    Se5.cmd('iperf -s  > dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperf-server5.txt &')
-    Se6.cmd('iperf -s  > dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperf-server6.txt &')
-    Se7.cmd('iperf -s  > dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperf-server7.txt &')
-    Se8.cmd('iperf -s  > dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperf-server8.txt &')
+    Se1.cmd('iperf -s  > dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperf-server1.txt &')
+    Se2.cmd('iperf -s  > dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperf-server2.txt &')
+    Se3.cmd('iperf -s  > dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperf-server3.txt &')
+    Se4.cmd('iperf -s  > dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperf-server4.txt &')
+    Se5.cmd('iperf -s  > dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperf-server5.txt &')
+    Se6.cmd('iperf -s  > dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperf-server6.txt &')
+    Se7.cmd('iperf -s  > dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperf-server7.txt &')
+    Se8.cmd('iperf -s  > dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperf-server8.txt &')
     
     print('                          Server Iperf Started')
     Se1.cmd('python -m SimpleHTTPServer &')
@@ -171,84 +173,83 @@ def mainTopo():
     print('                TCPDUMP Started Longlived for 65 s Please Wait')
     print('                              Iperf Started')
     Cl1.cmd('tcpdump -G 35 -W 1 -w /home/reghn/Documents/pcapngs/1_LL_.pcapng -i Cl1-eth0 &') #62s
-    Cl1.cmd('iperf -c 192.168.10.2 -t 30 -i 1 > dataResult/examine4/1_LL_iperfRests.txt &') #30s
-    Cl1.cmd('ping 192.168.10.2 -c 30 > dataResult/examine4/1_LL_rttRests.txt & ') #30s
+    Cl1.cmd('iperf -c 192.168.10.2 -t 30 -i 1 > dataResult/examine5/1_LL_iperfRests.txt &') #30s
+    Cl1.cmd('ping 192.168.10.2 -c 30 > dataResult/examine5/1_LL_rttRests.txt & ') #30s
     # Cl1.cmd('ping 192.168.10.2 -c 9 ')
 
     Cl2.cmd('tcpdump -G 35 -W 1 -w /home/reghn/Documents/pcapngs/2_LL_.pcapng -i Cl2-eth0 &') #62s
-    Cl2.cmd('iperf -c 192.168.20.2 -t 30 -i 1 > dataResult/examine4/2_LL_iperfRests.txt &') #30s
-    Cl2.cmd('ping 192.168.20.2 -c 30 > dataResult/examine4/2_LL_rttRests.txt & ') #30s
+    Cl2.cmd('iperf -c 192.168.20.2 -t 30 -i 1 > dataResult/examine5/2_LL_iperfRests.txt &') #30s
+    Cl2.cmd('ping 192.168.20.2 -c 30 > dataResult/examine5/2_LL_rttRests.txt & ') #30s
     # Cl2.cmd('ping 192.168.20.2 -c 9 ')
     
     Cl3.cmd('tcpdump -G 35 -W 1 -w /home/reghn/Documents/pcapngs/3_LL_.pcapng -i Cl3-eth0 &') #62s
-    Cl3.cmd('iperf -c 192.168.30.2 -t 30 -i 1 > dataResult/examine4/3_LL_iperfRests.txt &') #30s
-    Cl3.cmd('ping 192.168.30.2 -c 30 > dataResult/examine4/3_LL_rttRests.txt & ') #30s
+    Cl3.cmd('iperf -c 192.168.30.2 -t 30 -i 1 > dataResult/examine5/3_LL_iperfRests.txt &') #30s
+    Cl3.cmd('ping 192.168.30.2 -c 30 > dataResult/examine5/3_LL_rttRests.txt & ') #30s
     # Cl3.cmd('ping 192.168.30.2 -c 9 ')
     
     Cl4.cmd('tcpdump -G 35 -W 1 -w /home/reghn/Documents/pcapngs/4_LL_.pcapng -i Cl4-eth0 &') #62s
-    Cl4.cmd('iperf -c 192.168.40.2 -t 30 -i 1 > dataResult/examine4/4_LL_iperfRests.txt &') #30s
-    Cl4.cmd('ping 192.168.40.2 -c 30 > dataResult/examine4/4_LL_rttRests.txt & ') #30s
+    Cl4.cmd('iperf -c 192.168.40.2 -t 30 -i 1 > dataResult/examine5/4_LL_iperfRests.txt &') #30s
+    Cl4.cmd('ping 192.168.40.2 -c 30 > dataResult/examine5/4_LL_rttRests.txt & ') #30s
     # Cl4.cmd('ping 192.168.40.2 -c 9 ')
         
     Cl5.cmd('tcpdump -G 35 -W 1 -w /home/reghn/Documents/pcapngs/5_LL_.pcapng -i Cl5-eth0 &') #62s
-    Cl5.cmd('iperf -c 192.168.50.2 -t 30 -i 1 > dataResult/examine4/5_LL_iperfRests.txt &') #30s
-    Cl5.cmd('ping 192.168.50.2 -c 30 > dataResult/examine4/5_LL_rttRests.txt & ') #30s
+    Cl5.cmd('iperf -c 192.168.50.2 -t 30 -i 1 > dataResult/examine5/5_LL_iperfRests.txt &') #30s
+    Cl5.cmd('ping 192.168.50.2 -c 30 > dataResult/examine5/5_LL_rttRests.txt & ') #30s
     # Cl5.cmd('ping 192.168.50.2 -c 9 ')
 
     Cl6.cmd('tcpdump -G 35 -W 1 -w /home/reghn/Documents/pcapngs/6_LL_.pcapng -i Cl6-eth0 &') #62s
-    Cl6.cmd('iperf -c 192.168.60.2 -t 30 -i 1 > dataResult/examine4/6_LL_iperfRests.txt &') #30s
-    Cl6.cmd('ping 192.168.60.2 -c 30 > dataResult/examine4/6_LL_rttRests.txt & ') #30s
+    Cl6.cmd('iperf -c 192.168.60.2 -t 30 -i 1 > dataResult/examine5/6_LL_iperfRests.txt &') #30s
+    Cl6.cmd('ping 192.168.60.2 -c 30 > dataResult/examine5/6_LL_rttRests.txt & ') #30s
     # Cl6.cmd('ping 192.168.60.2 -c 9 ')
             
     Cl7.cmd('tcpdump -G 35 -W 1 -w /home/reghn/Documents/pcapngs/7_LL_.pcapng -i Cl7-eth0 &') #62s
-    Cl7.cmd('iperf -c 192.168.70.2 -t 30 -i 1 > dataResult/examine4/7_LL_iperfRests.txt &') #30s
-    Cl7.cmd('ping 192.168.70.2 -c 30 > dataResult/examine4/7_LL_rttRests.txt & ') #30s
+    Cl7.cmd('iperf -c 192.168.70.2 -t 30 -i 1 > dataResult/examine5/7_LL_iperfRests.txt &') #30s
+    Cl7.cmd('ping 192.168.70.2 -c 30 > dataResult/examine5/7_LL_rttRests.txt & ') #30s
     # Cl7.cmd('ping 192.168.70.2 -c 9 ')
             
     Cl8.cmd('tcpdump -G 35 -W 1 -w /home/reghn/Documents/pcapngs/8_LL_.pcapng -i Cl8-eth0 &') #62s
-    Cl8.cmd('iperf -c 192.168.80.2 -t 30 -i 1 > dataResult/examine4/8_LL_iperfRests.txt &') #30s
-    Cl8.cmd('ping 192.168.80.2 -c 30 > dataResult/examine4/8_LL_rttRests.txt & ') #30s
+    Cl8.cmd('iperf -c 192.168.80.2 -t 30 -i 1 > dataResult/examine5/8_LL_iperfRests.txt &') #30s
+    Cl8.cmd('ping 192.168.80.2 -c 30 > dataResult/examine5/8_LL_rttRests.txt & ') #30s
     # Cl8.cmd('ping 192.168.80.2 -c 9 ')
 
-    time.sleep(5)
+    time.sleep(2)
 
     #pidCode = subprocess.check_output('pidof tcpdump', shell=True)
     #pidCode = pidCode.replace("\n","")
     #Cl1.cmd('kill '+str(pidCode)+'')
-
     #### rename file ####
 
-    os.system('mv /home/reghn/Documents/pcapngs/1_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_CL1.pcapng')
-    os.system('mv dataResult/examine4/1_LL_iperfRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests_Cl1.txt')
-    os.system('mv dataResult/examine4/1_LL_rttRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests._Cl1.txt')
+    os.system('mv /home/reghn/Documents/pcapngs/1_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_CL1.pcapng')
+    os.system('mv dataResult/examine5/1_LL_iperfRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperfRests_Cl1.txt')
+    os.system('mv dataResult/examine5/1_LL_rttRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_rttRests._Cl1.txt')
 
-    os.system('mv /home/reghn/Documents/pcapngs/2_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_CL2.pcapng')
-    os.system('mv dataResult/examine4/2_LL_iperfRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests_Cl2.txt')
-    os.system('mv dataResult/examine4/2_LL_rttRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests._Cl2.txt')
+    os.system('mv /home/reghn/Documents/pcapngs/2_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_CL2.pcapng')
+    os.system('mv dataResult/examine5/2_LL_iperfRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperfRests_Cl2.txt')
+    os.system('mv dataResult/examine5/2_LL_rttRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_rttRests._Cl2.txt')
     
-    os.system('mv /home/reghn/Documents/pcapngs/3_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_CL3.pcapng')
-    os.system('mv dataResult/examine4/3_LL_iperfRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests_Cl3.txt')
-    os.system('mv dataResult/examine4/3_LL_rttRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests._Cl3.txt')
+    os.system('mv /home/reghn/Documents/pcapngs/3_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_CL3.pcapng')
+    os.system('mv dataResult/examine5/3_LL_iperfRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperfRests_Cl3.txt')
+    os.system('mv dataResult/examine5/3_LL_rttRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_rttRests._Cl3.txt')
     
-    os.system('mv /home/reghn/Documents/pcapngs/4_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_CL4.pcapng')
-    os.system('mv dataResult/examine4/4_LL_iperfRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests_Cl4.txt')
-    os.system('mv dataResult/examine4/4_LL_rttRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests._Cl4.txt')
+    os.system('mv /home/reghn/Documents/pcapngs/4_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_CL4.pcapng')
+    os.system('mv dataResult/examine5/4_LL_iperfRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperfRests_Cl4.txt')
+    os.system('mv dataResult/examine5/4_LL_rttRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_rttRests._Cl4.txt')
     
-    os.system('mv /home/reghn/Documents/pcapngs/5_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_CL5.pcapng')
-    os.system('mv dataResult/examine4/5_LL_iperfRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests_Cl5.txt')
-    os.system('mv dataResult/examine4/5_LL_rttRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests._Cl5.txt')
+    os.system('mv /home/reghn/Documents/pcapngs/5_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_CL5.pcapng')
+    os.system('mv dataResult/examine5/5_LL_iperfRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperfRests_Cl5.txt')
+    os.system('mv dataResult/examine5/5_LL_rttRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_rttRests._Cl5.txt')
     
-    os.system('mv /home/reghn/Documents/pcapngs/6_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_CL6.pcapng')
-    os.system('mv dataResult/examine4/6_LL_iperfRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests_Cl6.txt')
-    os.system('mv dataResult/examine4/6_LL_rttRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests._Cl6.txt')
+    os.system('mv /home/reghn/Documents/pcapngs/6_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_CL6.pcapng')
+    os.system('mv dataResult/examine5/6_LL_iperfRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperfRests_Cl6.txt')
+    os.system('mv dataResult/examine5/6_LL_rttRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_rttRests._Cl6.txt')
     
-    os.system('mv /home/reghn/Documents/pcapngs/7_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_CL7.pcapng')
-    os.system('mv dataResult/examine4/7_LL_iperfRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests_Cl7.txt')
-    os.system('mv dataResult/examine4/7_LL_rttRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests._Cl7.txt')
+    os.system('mv /home/reghn/Documents/pcapngs/7_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_CL7.pcapng')
+    os.system('mv dataResult/examine5/7_LL_iperfRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperfRests_Cl7.txt')
+    os.system('mv dataResult/examine5/7_LL_rttRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_rttRests._Cl7.txt')
     
-    os.system('mv /home/reghn/Documents/pcapngs/8_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_CL8.pcapng')
-    os.system('mv dataResult/examine4/8_LL_iperfRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests_Cl8.txt')
-    os.system('mv dataResult/examine4/8_LL_rttRests.txt dataResult/examine4/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests._Cl8.txt')
+    os.system('mv /home/reghn/Documents/pcapngs/8_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_CL8.pcapng')
+    os.system('mv dataResult/examine5/8_LL_iperfRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_iperfRests_Cl8.txt')
+    os.system('mv dataResult/examine5/8_LL_rttRests.txt dataResult/examine5/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_LL_rttRests._Cl8.txt')
     
     print('=========================================================================')
     print('                          Python HTTP Server Start')
@@ -259,40 +260,40 @@ def mainTopo():
     # Cl1.cmd('tcpdump -G 25 -W 1 -w /home/reghn/Documents/pcapngs/_SL_.pcapng -i Cl1-eth0 &')
     
     Cl1.cmdPrint('wget -q 192.168.10.2:8000 &')
-    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'restSL_Cl1.png &')    
-    #os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_Cl1')
+    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'_'+str(BW)+'restSL_Cl1.png &')    
+    #os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_'+str(BW)+'_Cl1')
 
-    # os.system('mv /home/reghn/Documents/pcapngs/_SL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_SL_.pcapng')
+    # os.system('mv /home/reghn/Documents/pcapngs/_SL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_SL_.pcapng')
 
     Cl2.cmdPrint('wget -q 192.168.20.2:8000 &')
-    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'restSL_Cl2.png &')
-    # os.system('mv /home/reghn/Documents/pcapngs/_SL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_SL_Cl2.pcapng')
-    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_Cl2')
+    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'_'+str(BW)+'restSL_Cl2.png &')
+    # os.system('mv /home/reghn/Documents/pcapngs/_SL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_'+str(BW)+'_SL_Cl2.pcapng')
+    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_'+str(BW)+'_Cl2')
 
     Cl3.cmdPrint('wget -q 192.168.30.2:8000 &')
-    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'restSL_Cl3.png &')    
-    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_Cl3')
+    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'_'+str(BW)+'restSL_Cl3.png &')    
+    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_'+str(BW)+'_Cl3')
 
 
     Cl4.cmdPrint('wget -q 192.168.40.2:8000 &')
-    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'restSL.png &')    
-    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_Cl4')
+    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'_'+str(BW)+'restSL.png &')    
+    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_'+str(BW)+'_Cl4')
 
     Cl5.cmdPrint('wget -q 192.168.50.2:8000 &')
-    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'restSL.png &')    
-    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_Cl5')
+    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'_'+str(BW)+'restSL.png &')    
+    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_'+str(BW)+'_Cl5')
 
     Cl6.cmdPrint('wget -q 192.168.60.2:8000 &')
-    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'restSL.png &')    
-    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_Cl6')
+    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'_'+str(BW)+'restSL.png &')    
+    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_'+str(BW)+'_Cl6')
 
     Cl7.cmdPrint('wget -q 192.168.70.2:8000 &')
-    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'restSL.png &')    
-    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_Cl7')
+    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'_'+str(BW)+'restSL.png &')    
+    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_'+str(BW)+'_Cl7')
 
     Cl8.cmdPrint('wget -q 192.168.80.2:8000 &')
-    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'restSL.png &')    
-    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_Cl8')
+    # os.system('scrot --delay 2 '+str(ccName)+''+str(maxQ)+'_'+str(BW)+'restSL.png &')    
+    # os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'_'+str(BW)+'_Cl8')
 
 
     print('=========================================================================')
@@ -314,10 +315,10 @@ def runAll():
 
 if __name__ =='__main__':
     setLogLevel('info')
-    
+    Bw_Exp = [0.512,0.256]
     maxq = [20, 200, 2000, 20000]
-    for maxQ in maxq:
+    for BW in Bw_Exp:
+        # for maxQ in maxq:
+        #     runAll()
         runAll()
-        
-    # runAll()
     
