@@ -1,0 +1,35 @@
+PING 192.168.20.2 (192.168.20.2) 56(84) bytes of data.
+64 bytes from 192.168.20.2: icmp_seq=1 ttl=63 time=0.037 ms
+64 bytes from 192.168.20.2: icmp_seq=2 ttl=63 time=688 ms
+64 bytes from 192.168.20.2: icmp_seq=3 ttl=63 time=753 ms
+64 bytes from 192.168.20.2: icmp_seq=4 ttl=63 time=801 ms
+64 bytes from 192.168.20.2: icmp_seq=5 ttl=63 time=845 ms
+64 bytes from 192.168.20.2: icmp_seq=6 ttl=63 time=916 ms
+64 bytes from 192.168.20.2: icmp_seq=7 ttl=63 time=1136 ms
+64 bytes from 192.168.20.2: icmp_seq=8 ttl=63 time=1430 ms
+64 bytes from 192.168.20.2: icmp_seq=9 ttl=63 time=1848 ms
+64 bytes from 192.168.20.2: icmp_seq=10 ttl=63 time=2388 ms
+64 bytes from 192.168.20.2: icmp_seq=11 ttl=63 time=2861 ms
+64 bytes from 192.168.20.2: icmp_seq=12 ttl=63 time=3394 ms
+64 bytes from 192.168.20.2: icmp_seq=13 ttl=63 time=3851 ms
+64 bytes from 192.168.20.2: icmp_seq=14 ttl=63 time=4364 ms
+64 bytes from 192.168.20.2: icmp_seq=15 ttl=63 time=4842 ms
+64 bytes from 192.168.20.2: icmp_seq=16 ttl=63 time=5358 ms
+64 bytes from 192.168.20.2: icmp_seq=17 ttl=63 time=5871 ms
+64 bytes from 192.168.20.2: icmp_seq=18 ttl=63 time=6361 ms
+64 bytes from 192.168.20.2: icmp_seq=19 ttl=63 time=6861 ms
+64 bytes from 192.168.20.2: icmp_seq=20 ttl=63 time=7376 ms
+64 bytes from 192.168.20.2: icmp_seq=21 ttl=63 time=7883 ms
+64 bytes from 192.168.20.2: icmp_seq=22 ttl=63 time=8381 ms
+64 bytes from 192.168.20.2: icmp_seq=23 ttl=63 time=8873 ms
+64 bytes from 192.168.20.2: icmp_seq=24 ttl=63 time=9382 ms
+64 bytes from 192.168.20.2: icmp_seq=25 ttl=63 time=9898 ms
+64 bytes from 192.168.20.2: icmp_seq=26 ttl=63 time=10390 ms
+64 bytes from 192.168.20.2: icmp_seq=27 ttl=63 time=10865 ms
+64 bytes from 192.168.20.2: icmp_seq=28 ttl=63 time=11383 ms
+64 bytes from 192.168.20.2: icmp_seq=29 ttl=63 time=11889 ms
+64 bytes from 192.168.20.2: icmp_seq=30 ttl=63 time=12420 ms
+
+--- 192.168.20.2 ping statistics ---
+30 packets transmitted, 30 received, 0% packet loss, time 29137ms
+rtt min/avg/max/mdev = 0.037/5444.073/12420.603/3903.622 ms, pipe 9

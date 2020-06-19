@@ -1,0 +1,35 @@
+PING 192.168.60.2 (192.168.60.2) 56(84) bytes of data.
+64 bytes from 192.168.60.2: icmp_seq=1 ttl=63 time=0.037 ms
+64 bytes from 192.168.60.2: icmp_seq=2 ttl=63 time=700 ms
+64 bytes from 192.168.60.2: icmp_seq=3 ttl=63 time=746 ms
+64 bytes from 192.168.60.2: icmp_seq=4 ttl=63 time=789 ms
+64 bytes from 192.168.60.2: icmp_seq=5 ttl=63 time=862 ms
+64 bytes from 192.168.60.2: icmp_seq=6 ttl=63 time=959 ms
+64 bytes from 192.168.60.2: icmp_seq=7 ttl=63 time=1134 ms
+64 bytes from 192.168.60.2: icmp_seq=8 ttl=63 time=1484 ms
+64 bytes from 192.168.60.2: icmp_seq=9 ttl=63 time=1845 ms
+64 bytes from 192.168.60.2: icmp_seq=10 ttl=63 time=2361 ms
+64 bytes from 192.168.60.2: icmp_seq=11 ttl=63 time=2882 ms
+64 bytes from 192.168.60.2: icmp_seq=12 ttl=63 time=3387 ms
+64 bytes from 192.168.60.2: icmp_seq=13 ttl=63 time=3866 ms
+64 bytes from 192.168.60.2: icmp_seq=14 ttl=63 time=4383 ms
+64 bytes from 192.168.60.2: icmp_seq=15 ttl=63 time=4860 ms
+64 bytes from 192.168.60.2: icmp_seq=16 ttl=63 time=5401 ms
+64 bytes from 192.168.60.2: icmp_seq=17 ttl=63 time=5892 ms
+64 bytes from 192.168.60.2: icmp_seq=18 ttl=63 time=6371 ms
+64 bytes from 192.168.60.2: icmp_seq=19 ttl=63 time=6876 ms
+64 bytes from 192.168.60.2: icmp_seq=20 ttl=63 time=7363 ms
+64 bytes from 192.168.60.2: icmp_seq=21 ttl=63 time=7893 ms
+64 bytes from 192.168.60.2: icmp_seq=22 ttl=63 time=8419 ms
+64 bytes from 192.168.60.2: icmp_seq=23 ttl=63 time=8905 ms
+64 bytes from 192.168.60.2: icmp_seq=24 ttl=63 time=9395 ms
+64 bytes from 192.168.60.2: icmp_seq=25 ttl=63 time=9910 ms
+64 bytes from 192.168.60.2: icmp_seq=26 ttl=63 time=10402 ms
+64 bytes from 192.168.60.2: icmp_seq=27 ttl=63 time=10918 ms
+64 bytes from 192.168.60.2: icmp_seq=28 ttl=63 time=11409 ms
+64 bytes from 192.168.60.2: icmp_seq=29 ttl=63 time=11922 ms
+64 bytes from 192.168.60.2: icmp_seq=30 ttl=63 time=12396 ms
+
+--- 192.168.60.2 ping statistics ---
+30 packets transmitted, 30 received, 0% packet loss, time 29167ms
+rtt min/avg/max/mdev = 0.037/5458.119/12396.269/3907.361 ms, pipe 9

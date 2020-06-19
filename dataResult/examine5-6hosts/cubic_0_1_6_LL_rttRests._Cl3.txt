@@ -1,0 +1,35 @@
+PING 192.168.30.2 (192.168.30.2) 56(84) bytes of data.
+64 bytes from 192.168.30.2: icmp_seq=1 ttl=63 time=230 ms
+64 bytes from 192.168.30.2: icmp_seq=2 ttl=63 time=721 ms
+64 bytes from 192.168.30.2: icmp_seq=3 ttl=63 time=767 ms
+64 bytes from 192.168.30.2: icmp_seq=4 ttl=63 time=834 ms
+64 bytes from 192.168.30.2: icmp_seq=5 ttl=63 time=879 ms
+64 bytes from 192.168.30.2: icmp_seq=6 ttl=63 time=952 ms
+64 bytes from 192.168.30.2: icmp_seq=7 ttl=63 time=1151 ms
+64 bytes from 192.168.30.2: icmp_seq=8 ttl=63 time=1465 ms
+64 bytes from 192.168.30.2: icmp_seq=9 ttl=63 time=1852 ms
+64 bytes from 192.168.30.2: icmp_seq=10 ttl=63 time=2355 ms
+64 bytes from 192.168.30.2: icmp_seq=11 ttl=63 time=2867 ms
+64 bytes from 192.168.30.2: icmp_seq=12 ttl=63 time=3386 ms
+64 bytes from 192.168.30.2: icmp_seq=13 ttl=63 time=3877 ms
+64 bytes from 192.168.30.2: icmp_seq=14 ttl=63 time=4367 ms
+64 bytes from 192.168.30.2: icmp_seq=15 ttl=63 time=4872 ms
+64 bytes from 192.168.30.2: icmp_seq=16 ttl=63 time=5362 ms
+64 bytes from 192.168.30.2: icmp_seq=17 ttl=63 time=5865 ms
+64 bytes from 192.168.30.2: icmp_seq=18 ttl=63 time=6387 ms
+64 bytes from 192.168.30.2: icmp_seq=19 ttl=63 time=6865 ms
+64 bytes from 192.168.30.2: icmp_seq=20 ttl=63 time=7382 ms
+64 bytes from 192.168.30.2: icmp_seq=21 ttl=63 time=7850 ms
+64 bytes from 192.168.30.2: icmp_seq=22 ttl=63 time=8376 ms
+64 bytes from 192.168.30.2: icmp_seq=23 ttl=63 time=8878 ms
+64 bytes from 192.168.30.2: icmp_seq=24 ttl=63 time=9383 ms
+64 bytes from 192.168.30.2: icmp_seq=25 ttl=63 time=9874 ms
+64 bytes from 192.168.30.2: icmp_seq=26 ttl=63 time=10402 ms
+64 bytes from 192.168.30.2: icmp_seq=27 ttl=63 time=10889 ms
+64 bytes from 192.168.30.2: icmp_seq=28 ttl=63 time=11406 ms
+64 bytes from 192.168.30.2: icmp_seq=29 ttl=63 time=11885 ms
+64 bytes from 192.168.30.2: icmp_seq=30 ttl=63 time=12429 ms
+
+--- 192.168.30.2 ping statistics ---
+30 packets transmitted, 30 received, 0% packet loss, time 29134ms
+rtt min/avg/max/mdev = 230.164/5460.722/12429.301/3887.505 ms, pipe 9

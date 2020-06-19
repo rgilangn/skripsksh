@@ -1,0 +1,35 @@
+PING 192.168.10.2 (192.168.10.2) 56(84) bytes of data.
+64 bytes from 192.168.10.2: icmp_seq=1 ttl=63 time=229 ms
+64 bytes from 192.168.10.2: icmp_seq=2 ttl=63 time=1216 ms
+64 bytes from 192.168.10.2: icmp_seq=3 ttl=63 time=1664 ms
+64 bytes from 192.168.10.2: icmp_seq=4 ttl=63 time=1859 ms
+64 bytes from 192.168.10.2: icmp_seq=5 ttl=63 time=1774 ms
+64 bytes from 192.168.10.2: icmp_seq=6 ttl=63 time=1789 ms
+64 bytes from 192.168.10.2: icmp_seq=7 ttl=63 time=1882 ms
+64 bytes from 192.168.10.2: icmp_seq=8 ttl=63 time=1752 ms
+64 bytes from 192.168.10.2: icmp_seq=9 ttl=63 time=1762 ms
+64 bytes from 192.168.10.2: icmp_seq=10 ttl=63 time=1828 ms
+64 bytes from 192.168.10.2: icmp_seq=11 ttl=63 time=1855 ms
+64 bytes from 192.168.10.2: icmp_seq=12 ttl=63 time=859 ms
+64 bytes from 192.168.10.2: icmp_seq=13 ttl=63 time=1945 ms
+64 bytes from 192.168.10.2: icmp_seq=14 ttl=63 time=2873 ms
+64 bytes from 192.168.10.2: icmp_seq=15 ttl=63 time=3355 ms
+64 bytes from 192.168.10.2: icmp_seq=16 ttl=63 time=2344 ms
+64 bytes from 192.168.10.2: icmp_seq=17 ttl=63 time=1344 ms
+64 bytes from 192.168.10.2: icmp_seq=18 ttl=63 time=404 ms
+64 bytes from 192.168.10.2: icmp_seq=19 ttl=63 time=152 ms
+64 bytes from 192.168.10.2: icmp_seq=20 ttl=63 time=133 ms
+64 bytes from 192.168.10.2: icmp_seq=21 ttl=63 time=153 ms
+64 bytes from 192.168.10.2: icmp_seq=22 ttl=63 time=154 ms
+64 bytes from 192.168.10.2: icmp_seq=23 ttl=63 time=65.9 ms
+64 bytes from 192.168.10.2: icmp_seq=24 ttl=63 time=138 ms
+64 bytes from 192.168.10.2: icmp_seq=25 ttl=63 time=128 ms
+64 bytes from 192.168.10.2: icmp_seq=26 ttl=63 time=134 ms
+64 bytes from 192.168.10.2: icmp_seq=27 ttl=63 time=116 ms
+64 bytes from 192.168.10.2: icmp_seq=28 ttl=63 time=113 ms
+64 bytes from 192.168.10.2: icmp_seq=29 ttl=63 time=114 ms
+64 bytes from 192.168.10.2: icmp_seq=30 ttl=63 time=129 ms
+
+--- 192.168.10.2 ping statistics ---
+30 packets transmitted, 30 received, 0% packet loss, time 29122ms
+rtt min/avg/max/mdev = 65.951/1075.959/3355.633/959.160 ms, pipe 4
