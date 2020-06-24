@@ -95,8 +95,8 @@ def mainTopo():
     #os.system('mv /home/reghn/Documents/pcapngs/_SL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_SL_.pcapng')
     os.system('mv restSL.png restSL'+str(ccName)+'_'+str(maxQ)+'_SK2')
     print('=========================================================================')
-    time.sleep(60)
-    CLI(net)
+    time.sleep(75)
+    #CLI(net)
     net.stop()
 
 def runAll():
@@ -110,8 +110,8 @@ def runAll():
 if __name__ =='__main__':
     setLogLevel('info')
     
-    maxq = [2000, 20000]
-    for maxQ in maxq:
-        runAll()
-    # runAll()
+    maxq = [20, 200, 2000, 20000]
+    # for maxQ in maxq:
+    #     runAll()
+    runAll()
     
