@@ -44,8 +44,8 @@ def mainTopo():
     net.pingAll()
     print('=================================================================================')
 
-
-    Se2.cmd('iperf -s > dataResult/iperf-server.txt &')
+    Se2.cmd('iperf -s &')
+    # Se2.cmd('iperf -s > dataResult/iperf-server.txt &')
     Se2.cmdPrint('echo                          Server Iperf Started')
     print('===============================================================================')
     Se2.cmdPrint('python -m SimpleHTTPServer &')

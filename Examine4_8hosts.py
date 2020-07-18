@@ -316,7 +316,7 @@ def runAll():
 if __name__ =='__main__':
     setLogLevel('info')
     Bw_Exp = [0.512,0.256]
-    # maxq = [20, 200, 2000, 20000]
+    maxq = [20, 200, 2000, 20000]
     for BW in Bw_Exp:
         # for maxQ in maxq:
         #     runAll()

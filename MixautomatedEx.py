@@ -110,8 +110,8 @@ def runAll():
 if __name__ =='__main__':
     setLogLevel('info')
     
-    maxq = [20, 200, 2000, 20000]
-    # for maxQ in maxq:
-    #     runAll()
-    runAll()
+    maxq = [20, 20000]
+    for maxQ in maxq:
+        runAll()
+#    runAll()
     
