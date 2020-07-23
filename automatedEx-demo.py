@@ -23,8 +23,8 @@ def mainTopo():
     Se2 = net.addHost('Se2', ip='192.168.2.2/29')
     Ro1 = net.addHost('Router1')
 
-    net.addLink(Cl1, Ro1, bw=100)
-    net.addLink(Se2, Ro1, bw=1, max_queue_size = maxQ) #, max_queue_size = X
+    net.addLink(Cl1, Ro1, bw=1)
+    net.addLink(Se2, Ro1, bw=100, max_queue_size = maxQ) #, max_queue_size = X
 
     net.build()
 
@@ -67,10 +67,9 @@ def mainTopo():
     ####    STARTING EXAMINE    ####
     print('                TCPDUMP Started Longlived for 65 s Please Wait')
     print('                              Iperf Started')
-    Cl1.cmd('tcpdump -G 65 -W 1 -w /home/reghn/Documents/pcapngs/_LL_.pcapng -i Cl1-eth0 &') #62s
-    Cl1.cmd('iperf -c 192.168.2.2 -t 60 -i 1 > dataResult/examine-X/_LL_iperfRests.txt &') #60s
-    Cl1.cmd('ping 192.168.2.2 -c 61 > dataResult/examine-X/_LL_rttRests.txt ') #61s
-    Cl1.cmd('ping 192.168.2.2 -c 9 ')
+    Cl1.cmd('tcpdump -G 15 -W 1 -w /home/reghn/Documents/pcapngs/_LL_.pcapng -i Cl1-eth0 &') #62s
+    Cl1.cmd('iperf -c 192.168.2.2 -t 15 -i 1 > dataResult/examine-X/_LL_iperfRests.txt &') #60s
+    Cl1.cmd('ping 192.168.2.2 -c 15 > dataResult/examine-X/_LL_rttRests.txt ') #61s
     
     #pidCode = subprocess.check_output('pidof tcpdump', shell=True)
     #pidCode = pidCode.replace("\n","")
@@ -87,7 +86,7 @@ def mainTopo():
     print('=========================================================================')
     
     os.system('echo                TCPDUMP Shortlived Started for 10 s Please Wait')
-    Cl1.cmd('tcpdump -G 25 -W 1 -w /home/reghn/Documents/pcapngs/_SL_.pcapng -i Cl1-eth0 &')
+    Cl1.cmd('tcpdump -G 15 -W 1 -w /home/reghn/Documents/pcapngs/_SL_.pcapng -i Cl1-eth0 &')
     
     Cl1.cmdPrint('wget 192.168.2.2:8000')
     print("                         Processing all file's   ")
@@ -96,7 +95,7 @@ def mainTopo():
     os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'')
     
     print('=========================================================================')
-    time.sleep(30)
+    time.sleep(10)
     # CLI(net)
     net.stop()
 

@@ -10,9 +10,17 @@ import subprocess
 
 maxQ = 0
 
+optlinkWifi = {'bw':100,'delay':'25ms','loss':0.2}
+optlink3G = {'bw':100, 'delay':'100ms','loss':0.6}
+optlink4G = {'bw':100,'delay':'50ms','loss':0.5}
+optlinkWAN = {'bw':100,'delay':'45ms','loss':0.3}
+optlinkLocal = {'bw':1, 'delay':'1ms'}
+
 def mainTopo():
 
     #Define Initial Topology on Mininet
+    print('===========================================================================')
+    print('===========================================================================')
     os.system('mn -c')
     print('===========================================================================')
     print('===========================================================================')
@@ -22,9 +30,10 @@ def mainTopo():
     Cl1 = net.addHost('Cl1', ip='192.168.1.2/29')
     Se2 = net.addHost('Se2', ip='192.168.2.2/29')
     Ro1 = net.addHost('Router1')
+    
 
-    net.addLink(Cl1, Ro1, bw=100)
-    net.addLink(Se2, Ro1, bw=1, max_queue_size = maxQ) #, max_queue_size = X
+    net.addLink(Cl1, Ro1, **optlinkWifi)
+    net.addLink(Se2, Ro1, **optlinkLocal) #, max_queue_size = X | max_queue_size = maxQ,
 
     net.build()
 
@@ -57,48 +66,37 @@ def mainTopo():
 
     net.pingAll()
     print('===========================================================================')
-
-    Se2.cmd('iperf -s &')
-    Se2.cmd('iperf -s  > dataResult/examine-X/'+str(ccName)+'_'+str(maxQ)+'_LL_iperf-server.txt &')
-    print('                          Server Iperf Started')
     Se2.cmd('python -m SimpleHTTPServer &')
+    print('                          Python HTTP Server Start')
+    Se2.cmd('iperf -s  > dataResult/examine-X/'+str(ccName)+'_'+str(maxQ)+'_LL_iperf-server_Wifi.txt &')
+    print('                          Server Iperf Started')
     print('=========================================================================')
 
     ####    STARTING EXAMINE    ####
     print('                TCPDUMP Started Longlived for 65 s Please Wait')
     print('                              Iperf Started')
-    Cl1.cmd('tcpdump -G 65 -W 1 -w /home/reghn/Documents/pcapngs/_LL_.pcapng -i Cl1-eth0 &') #62s
-    Cl1.cmd('iperf -c 192.168.2.2 -t 60 -i 1 > dataResult/examine-X/_LL_iperfRests.txt &') #60s
-    Cl1.cmd('ping 192.168.2.2 -c 61 > dataResult/examine-X/_LL_rttRests.txt ') #61s
-    Cl1.cmd('ping 192.168.2.2 -c 9 ')
-    
-    #pidCode = subprocess.check_output('pidof tcpdump', shell=True)
-    #pidCode = pidCode.replace("\n","")
-    #Cl1.cmd('kill '+str(pidCode)+'')
+    Cl1.cmd('tcpdump -G 32 -W 1 -w /home/reghn/Documents/pcapngs/_LL_.pcapng -i Cl1-eth0 &') #62s
+    Cl1.cmd('iperf -c 192.168.2.2 -t 30 -i 1 > dataResult/examine-X/_LL_iperfRests.txt &') #60s
+    Cl1.cmd('ping 192.168.2.2 -c 30 > dataResult/examine-X/_LL_rttRests.txt &') #61s
 
-    #### rename file ####
-    os.system('mv /home/reghn/Documents/pcapngs/_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_.pcapng')
-    os.system('mv dataResult/examine-X/_LL_iperfRests.txt dataResult/examine-X/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests.txt')
-    os.system('mv dataResult/examine-X/_LL_rttRests.txt dataResult/examine-X/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests.txt')
     print('=========================================================================')
+    time.sleep(5)
+    Cl1.cmdPrint('wget 192.168.2.2:8000 &')
     
-    Se2.cmd('python -m SimpleHTTPServer &')
-    print('                          Python HTTP Server Start')
+    #### rename file ####    
     print('=========================================================================')
-    
-    os.system('echo                TCPDUMP Shortlived Started for 10 s Please Wait')
-    Cl1.cmd('tcpdump -G 25 -W 1 -w /home/reghn/Documents/pcapngs/_SL_.pcapng -i Cl1-eth0 &')
-    
-    Cl1.cmdPrint('wget 192.168.2.2:8000')
     print("                         Processing all file's   ")
-    os.system('scrot --delay 2 restSL.png')
-    os.system('mv /home/reghn/Documents/pcapngs/_SL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_SL_.pcapng')
-    os.system('mv restSL.png restSL'+str(ccName)+''+str(maxQ)+'')
+    print('=========================================================================')
+    os.system('mv /home/reghn/Documents/pcapngs/_LL_.pcapng /home/reghn/Documents/pcapngs/'+str(ccName)+'_'+str(maxQ)+'_LL_Wifi.pcapng')
+    os.system('mv dataResult/examine-X/_LL_iperfRests.txt dataResult/examine-X/'+str(ccName)+'_'+str(maxQ)+'_LL_iperfRests_Wifi.txt')
+    os.system('mv dataResult/examine-X/_LL_rttRests.txt dataResult/examine-X/'+str(ccName)+'_'+str(maxQ)+'_LL_rttRests_Wifi.txt')
+
     
     print('=========================================================================')
-    time.sleep(30)
+    time.sleep(45)
     # CLI(net)
     net.stop()
+    print('==========================================================================')
 
     # run All program 
 def runAll():
@@ -113,7 +111,7 @@ def runAll():
 if __name__ =='__main__':
     setLogLevel('info')
     maxq = [20, 200, 2000, 20000]
-    for maxQ in maxq:
-        runAll()
-    #runAll()
+    # for maxQ in maxq:
+    #     runAll()
+    runAll()
     

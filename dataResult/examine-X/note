@@ -1,0 +1,7 @@
+cubic 2000 Wifi
+cubic 2000 WAN
+BBR WAN no pipe
+LEDBAT WAN no pipe
+BBR 3G NO pipe
+CUBIC 3G no pipe
+CUBIC 4G 
